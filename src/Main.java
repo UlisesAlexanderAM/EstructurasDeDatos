@@ -9,9 +9,11 @@ public class Main {
     public static void main(String[] args) {
         Rectangulo rectangulo1 = new Rectangulo(5,6);
         Triangulo triangulo1 = new Triangulo(3,8);
+        Romboide romboide1 = new Romboide(4,15);
 
         figuras.add(rectangulo1);
         figuras.add(triangulo1);
+        figuras.add(romboide1);
 
         imprimir("Todos las figuras tienen area, base y altura.");
         for (Figura figura : figuras){
