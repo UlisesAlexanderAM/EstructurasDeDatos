@@ -17,7 +17,7 @@ public class Main {
         figuras.add(triangulo1);
         figuras.add(romboide1);
 
-        imprimir("Todos las figuras tienen area, base y altura.");
+        imprimir("Todos las figuras tienen base, altura y area.");
         for (Figura figura : figuras){
             String nombre=figura.getClass().getSimpleName();
             imprimir("\n\nLa figura "+nombre+" tiene\nBase: "+figura.getBase()+" \nAltura: "+figura.getAltura());

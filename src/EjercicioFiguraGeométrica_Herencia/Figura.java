@@ -16,7 +16,7 @@ public class Figura {
     }
 
     public void calcularArea() {
-        imprimir("\nEl area de " +this.getClass().getName()+
+        imprimir("\nEl area de " +this.getClass().getSimpleName()+
                 " es: "+calcularArea(base,altura));
     }
 
