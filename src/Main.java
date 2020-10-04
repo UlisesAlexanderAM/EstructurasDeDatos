@@ -14,7 +14,7 @@ public class Main {
         imprimir("Todos las figuras tienen area, base y altura.");
         for (Figura figura : figuras){
             String nombre=figura.getClass().getName();
-            imprimir("La figura "+nombre+"tiene base: "+figura.getBase()+"y altura: "+figura.getAltura()+".");
+            imprimir("\nLa figura "+nombre+" tiene\nBase: "+figura.getBase()+" \nAltura: "+figura.getAltura());
             figura.calcularArea();
         }
     }

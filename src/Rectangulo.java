@@ -6,7 +6,7 @@ public class Rectangulo extends Figura{
     }
 
     @Override
-    public void calcularArea(int base, int altura) {
-        area=base*altura;
+    public float calcularArea(int base, int altura) {
+        return area=base*altura;
     }
 }

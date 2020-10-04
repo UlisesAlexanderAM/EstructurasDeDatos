@@ -14,11 +14,12 @@ public class Figura {
     }
 
     public void calcularArea() {
-        imprimir("El area de " +this.getClass().getName()+
-                " es: "+area);
+        imprimir("\nEl area de " +this.getClass().getName()+
+                " es: "+calcularArea(base,altura));
     }
 
-    public void calcularArea(int base,int altura){
+    public float calcularArea(int base,int altura){
+        return area;
     }
 
     public int getAltura() {
