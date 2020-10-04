@@ -1,3 +1,5 @@
+package EjercicioFiguraGeométrica_Herencia;
+
 public class Triangulo extends Figura{
 
     public Triangulo(){

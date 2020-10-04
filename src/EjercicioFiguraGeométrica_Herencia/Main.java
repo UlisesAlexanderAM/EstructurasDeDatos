@@ -1,3 +1,5 @@
+package EjercicioFiguraGeométrica_Herencia;
+
 import java.util.ArrayList;
 
 import static LecturaEscritura.Imprimir.imprimir;
@@ -17,7 +19,7 @@ public class Main {
 
         imprimir("Todos las figuras tienen area, base y altura.");
         for (Figura figura : figuras){
-            String nombre=figura.getClass().getName();
+            String nombre=figura.getClass().getSimpleName();
             imprimir("\n\nLa figura "+nombre+" tiene\nBase: "+figura.getBase()+" \nAltura: "+figura.getAltura());
             figura.calcularArea();
         }

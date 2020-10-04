@@ -1,3 +1,5 @@
+package EjercicioFiguraGeométrica_Herencia;
+
 import static LecturaEscritura.Imprimir.imprimir;
 
 public class Figura {
