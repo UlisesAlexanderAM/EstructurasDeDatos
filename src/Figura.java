@@ -10,9 +10,7 @@ public class Figura {
         this.altura=altura;
     }
 
-    public float calcularArea() {
-
-        return 0;
+    public void calcularArea() {
     }
 
     public int getAltura() {
