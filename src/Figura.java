@@ -1,6 +1,9 @@
+import static LecturaEscritura.Imprimir.imprimir;
+
 public class Figura {
     protected int base;
     protected int altura;
+    protected float area;
 
     public Figura(){
     }
@@ -11,6 +14,11 @@ public class Figura {
     }
 
     public void calcularArea() {
+        imprimir("El area de " +this.getClass().getName()+
+                " es: "+area);
+    }
+
+    public void calcularArea(int base,int altura){
     }
 
     public int getAltura() {
