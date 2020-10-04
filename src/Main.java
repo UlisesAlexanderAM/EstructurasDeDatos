@@ -7,14 +7,16 @@ public class Main {
     public static ArrayList<Figura> figuras = new ArrayList<>();
 
     public static void main(String[] args) {
-        Rectangulo rectangulo1=new Rectangulo(5,6);
+        Rectangulo rectangulo1 = new Rectangulo(5,6);
+        Triangulo triangulo1 = new Triangulo(3,8);
 
         figuras.add(rectangulo1);
+        figuras.add(triangulo1);
 
         imprimir("Todos las figuras tienen area, base y altura.");
         for (Figura figura : figuras){
             String nombre=figura.getClass().getName();
-            imprimir("\nLa figura "+nombre+" tiene\nBase: "+figura.getBase()+" \nAltura: "+figura.getAltura());
+            imprimir("\n\nLa figura "+nombre+" tiene\nBase: "+figura.getBase()+" \nAltura: "+figura.getAltura());
             figura.calcularArea();
         }
     }
