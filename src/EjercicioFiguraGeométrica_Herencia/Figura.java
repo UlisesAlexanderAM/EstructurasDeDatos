@@ -8,6 +8,7 @@ public class Figura {
     protected float area;
 
     public Figura(){
+        imprimir("\n"+this.getClass().getSimpleName());
     }
 
     public Figura(int base, int altura){
