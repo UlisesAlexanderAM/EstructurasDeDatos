@@ -97,6 +97,6 @@ public class Electrodomestico {
     }
 
    public String toString(int num) {
-        return String.format("%d", num);
+        return String.format("Otro electrodoméstico {%d}", num);
     }
 }
