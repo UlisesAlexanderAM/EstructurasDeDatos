@@ -35,11 +35,11 @@ public class Main {
 
         for (Electrodomestico electrodomestico : electrodomesticos){
             int indice;
-            if (electrodomestico.getClass().getSimpleName().equals("Lavadora")){
+            if (electrodomestico instanceof Lavadora){
                 indiceLavadora+=1;
                 indice=indiceLavadora;
                 precioTotalLavadora+=electrodomestico.precioFinal();
-            }else if (electrodomestico.getClass().getSimpleName().equals("Television")){
+            }else if (electrodomestico instanceof Television){
                 indiceTelevision+=1;
                 indice=indiceTelevision;
                 precioTotalTelevision+=electrodomestico.precioFinal();
