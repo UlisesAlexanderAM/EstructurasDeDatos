@@ -9,6 +9,7 @@ public class Main {
     public static ArrayList<Electrodomestico> electrodomesticos = new ArrayList<>(10);
     public static void main(String[] args){
         Lavadora lavadora1 = new Lavadora();
+        Television television1 = new Television();
 
         electrodomesticos.add(lavadora1);
 
@@ -16,5 +17,6 @@ public class Main {
             int indice = electrodomesticos.lastIndexOf(electrodomestico);
             imprimir(String.format("El precio de %s es de: %s", electrodomestico.toString(indice), electrodomestico.precioFinal()));
         }
+        electrodomesticos.add(television1);
     }
 }
