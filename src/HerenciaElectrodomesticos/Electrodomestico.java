@@ -95,4 +95,9 @@ public class Electrodomestico {
     public float getPeso() {
         return peso;
     }
+
+    public String toString(int lastIndexOf) {
+        int num = lastIndexOf+1;
+        return String.format("%d", num);
+    }
 }
