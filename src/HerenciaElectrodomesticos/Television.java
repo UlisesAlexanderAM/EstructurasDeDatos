@@ -54,6 +54,10 @@ public class Television extends Electrodomestico{
         return super.precioFinal()+precio;
     }
 
+    public String toString(int num) {
+        return String.format("Television{%d}", num);
+    }
+
     public int getResolucion() {
         return resolucion;
     }

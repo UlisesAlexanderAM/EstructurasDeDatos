@@ -33,8 +33,7 @@ public class Lavadora extends Electrodomestico{
         }
     }
 
-    public String toString(int lastIndexOf) {
-        int num=lastIndexOf+1;
+    public String toString(int num) {
         return String.format("Lavadora{%d}", num);
     }
 
