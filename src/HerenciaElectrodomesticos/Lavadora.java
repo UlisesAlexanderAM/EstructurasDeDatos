@@ -1,7 +1,7 @@
 package HerenciaElectrodomesticos;
 
 public class Lavadora extends Electrodomestico{
-    private final float carga;
+    private float carga;
     private final float cargaPorDefecto=5;
 
     public Lavadora() {
@@ -29,6 +29,10 @@ public class Lavadora extends Electrodomestico{
             precio+=50;
         }
         return super.precioFinal()+precio;
+    }
+
+    public void setCarga(float carga) {
+        this.carga = carga;
     }
 
     public String toString(int num) {

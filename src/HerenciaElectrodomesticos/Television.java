@@ -65,4 +65,20 @@ public class Television extends Electrodomestico{
     public boolean isSintonizadorTDT() {
         return sintonizadorTDT;
     }
+
+    public void setResolucion(int resolucion) {
+        this.resolucion = resolucion;
+    }
+
+    public void setSintonizadorTDT(boolean sintonizadorTDT) {
+        this.sintonizadorTDT = sintonizadorTDT;
+    }
+
+    public int getResolucionPorDefecto() {
+        return resolucionPorDefecto;
+    }
+
+    public boolean isSintonizadorTDTPorDefecto() {
+        return sintonizadorTDTPorDefecto;
+    }
 }

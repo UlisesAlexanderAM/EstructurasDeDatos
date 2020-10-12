@@ -1,12 +1,14 @@
 package HerenciaElectrodomesticosGUI;
 
 import HerenciaElectrodomesticos.Electrodomestico;
+import HerenciaElectrodomesticos.Lavadora;
+import HerenciaElectrodomesticos.Television;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class ElectrodomesticosGUI {
@@ -43,33 +45,35 @@ public class ElectrodomesticosGUI {
 	private String color;
 	private char consumoEnergetico;
 	private float peso;
+	private int indice=0;
 
 	public static ArrayList<Electrodomestico> electrodomesticos = new ArrayList<>(10);
 
 	public ElectrodomesticosGUI() {
 		lavadoraRadioButton.addActionListener(actionEvent -> {
-//				Lavadora lavadora = new Lavadora();
-//				crearObjeto(lavadora);
+			Lavadora lavadora = new Lavadora();
+			electrodomesticos.add(indice,lavadora);
 			panelLavadora.setVisible(true);
 			panelTelevision.setVisible(false);
 			frame.pack();
 		});
 		televisorRadioButton.addActionListener(actionEvent -> {
-//				Television television = new Television();
+			Television television = new Television();
+			electrodomesticos.add(indice,television);
 			panelTelevision.setVisible(true);
 			panelLavadora.setVisible(false);
 			frame.pack();
 		});
-		colorList.addMouseListener(new MouseAdapter() {
+		otroElectrodomestico.addActionListener(new ActionListener() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
-				int indice = colorList.getSelectedIndex();
+			public void actionPerformed(ActionEvent actionEvent) {
+				Electrodomestico otroElectrodomestico = new Electrodomestico();
+				electrodomesticos.add(otroElectrodomestico);
 			}
 		});
 	}
 
-	public void crearObjeto(Electrodomestico electrodomestico) {
-//		electrodomestico;
+	public void crearObjeto() {
 	}
 
 	public static void main(String[] args) {

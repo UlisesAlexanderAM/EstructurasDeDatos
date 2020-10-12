@@ -96,7 +96,23 @@ public class Electrodomestico {
         return peso;
     }
 
-   public String toString(int num) {
+    public void setPrecioBase(float precioBase) {
+        this.precioBase = precioBase;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setConsumoEnergetico(char consumoEnergetico) {
+        this.consumoEnergetico = consumoEnergetico;
+    }
+
+    public void setPeso(float peso) {
+        this.peso = peso;
+    }
+
+    public String toString(int num) {
         return String.format("Otro electrodoméstico {%d}", num);
     }
 }
