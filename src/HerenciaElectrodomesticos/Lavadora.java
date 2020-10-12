@@ -1,37 +1,37 @@
 package HerenciaElectrodomesticos;
 
 public class Lavadora extends Electrodomestico{
-    private float carga;
-    private final float cargaPorDefecto=5;
+    private double carga;
+    private final double cargaPorDefecto=5;
 
     public Lavadora() {
         carga=cargaPorDefecto;
     }
 
-    public Lavadora(float carga) {
+    public Lavadora(double carga) {
         this.carga = carga;
     }
 
-    public Lavadora(float precioBase, float peso) {
+    public Lavadora(double precioBase, double peso) {
         super(precioBase, peso);
         carga=cargaPorDefecto;
     }
 
-    public Lavadora(float precioBase, String color, char consumoEnergetico, float peso, float carga) {
+    public Lavadora(double precioBase, String color, char consumoEnergetico, double peso, double carga) {
         super(precioBase, color, consumoEnergetico, peso);
         this.carga = carga;
     }
 
     @Override
-    public float precioFinal() {
-        float precio=0;
+    public double precioFinal() {
+        double precio=0;
         if (carga>=30){
             precio+=50;
         }
         return super.precioFinal()+precio;
     }
 
-    public void setCarga(float carga) {
+    public void setCarga(double carga) {
         this.carga = carga;
     }
 
@@ -39,7 +39,7 @@ public class Lavadora extends Electrodomestico{
         return String.format("Lavadora{%d}", num);
     }
 
-    public float getCarga() {
+    public double getCarga() {
         return carga;
     }
 }

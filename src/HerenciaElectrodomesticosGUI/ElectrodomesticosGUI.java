@@ -7,8 +7,8 @@ import HerenciaElectrodomesticos.Television;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class ElectrodomesticosGUI {
@@ -40,40 +40,66 @@ public class ElectrodomesticosGUI {
 	private JLabel colorLabel;
 	private JPanel ventana1;
 
-	private static JFrame frame = new JFrame("ElectrodomesticosGUI");
-	private float precioBase;
-	private String color;
-	private char consumoEnergetico;
-	private float peso;
-	private int indice=0;
+	private static final JFrame frame = new JFrame("ElectrodomesticosGUI");
+	private int indice = 0;
+	private boolean sTDT;
+	private final char[] consumoEnergetico = {'A', 'B', 'C', 'D', 'E', 'F'};
+	private char seleccionConsumoEnergetico;
 
 	public static ArrayList<Electrodomestico> electrodomesticos = new ArrayList<>(10);
 
 	public ElectrodomesticosGUI() {
 		lavadoraRadioButton.addActionListener(actionEvent -> {
 			Lavadora lavadora = new Lavadora();
-			electrodomesticos.add(indice,lavadora);
+			electrodomesticos.add(indice, lavadora);
 			panelLavadora.setVisible(true);
 			panelTelevision.setVisible(false);
 			frame.pack();
 		});
 		televisorRadioButton.addActionListener(actionEvent -> {
 			Television television = new Television();
-			electrodomesticos.add(indice,television);
+			electrodomesticos.add(indice, television);
 			panelTelevision.setVisible(true);
 			panelLavadora.setVisible(false);
 			frame.pack();
 		});
-		otroElectrodomestico.addActionListener(new ActionListener() {
+		otroElectrodomestico.addActionListener(actionEvent -> {
+			Electrodomestico otroElectrodomestico = new Electrodomestico();
+			electrodomesticos.add(otroElectrodomestico);
+		});
+		crearObjetoButton.addActionListener(actionEvent -> {
+			crearObjeto();
+			new JOptionPane().createDialog("Confirmacion");
+			indice = +1;
+			ventana.updateUI();
+		});
+		trueRB.addActionListener(actionEvent -> sTDT = true);
+		falseRB.addActionListener(actionEvent -> sTDT = false);
+		consumoEnergeticoList.addMouseListener(new MouseAdapter() {
 			@Override
-			public void actionPerformed(ActionEvent actionEvent) {
-				Electrodomestico otroElectrodomestico = new Electrodomestico();
-				electrodomesticos.add(otroElectrodomestico);
+			public void mouseClicked(MouseEvent e) {
+				seleccionConsumoEnergetico = consumoEnergetico[consumoEnergeticoList.getSelectedIndex()];
 			}
 		});
 	}
 
 	public void crearObjeto() {
+		String color = colorList.getSelectedValue().toString();
+		double precioBase = Double.parseDouble(precioTextField.getText());
+		double peso = Double.parseDouble(pesoTextField.getText());
+		Electrodomestico electrodomestico = electrodomesticos.get(indice);
+		electrodomestico.setColor(color);
+		electrodomestico.setConsumoEnergetico(seleccionConsumoEnergetico);
+		electrodomestico.setPrecioBase(precioBase);
+		electrodomestico.setPeso(peso);
+		if (electrodomestico instanceof Television) {
+			int resolucion = Integer.parseInt(resolucionTextField.getText());
+			((Television) electrodomestico).setResolucion(resolucion);
+			((Television) electrodomestico).setSintonizadorTDT(sTDT);
+		} else if (electrodomestico instanceof Lavadora) {
+			double carga = Double.parseDouble(cargaTextField.getText());
+			((Lavadora) electrodomestico).setCarga(carga);
+		}
 	}
 
 	public static void main(String[] args) {

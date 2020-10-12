@@ -2,14 +2,14 @@ package HerenciaElectrodomesticos;
 
 public class Electrodomestico {
 
-    protected float precioBase;
-    private final float precioBasePorDefecto = 100;
+    protected double precioBase;
+    private final double precioBasePorDefecto = 100;
     protected String color;
     private final String colorPorDefecto = "Blanco";
     protected char consumoEnergetico;
     private final char consumoEnergeticoPorDefecto = 'F';
-    protected float peso;
-    private final float pesoPorDefecto = 5;
+    protected double peso;
+    private final double pesoPorDefecto = 5;
 
     public Electrodomestico() {
         precioBase=precioBasePorDefecto;
@@ -18,14 +18,14 @@ public class Electrodomestico {
         peso=pesoPorDefecto;
     }
 
-    public Electrodomestico(float precioBase, float peso) {
+    public Electrodomestico(double precioBase, double peso) {
         this.precioBase = precioBase;
         this.peso = peso;
         consumoEnergetico=consumoEnergeticoPorDefecto;
         color=colorPorDefecto;
     }
 
-    public Electrodomestico(float precioBase, String color, char consumoEnergetico, float peso) {
+    public Electrodomestico(double precioBase, String color, char consumoEnergetico, double peso) {
         this.precioBase = precioBase;
         this.color = comprobarColor(color);
         this.consumoEnergetico = comprobarConsumoEnergetico(consumoEnergetico);
@@ -50,8 +50,8 @@ public class Electrodomestico {
         }
     }
 
-    public float precioFinal(){
-        float precio=precioBase;
+    public double precioFinal(){
+        double precio=precioBase;
 
         if (consumoEnergetico == 'A'){
             precio+=100;
@@ -80,7 +80,7 @@ public class Electrodomestico {
         return precio;
     }
 
-    public float getPrecioBase() {
+    public double getPrecioBase() {
         return precioBase;
     }
 
@@ -92,11 +92,11 @@ public class Electrodomestico {
         return consumoEnergetico;
     }
 
-    public float getPeso() {
+    public double getPeso() {
         return peso;
     }
 
-    public void setPrecioBase(float precioBase) {
+    public void setPrecioBase(double precioBase) {
         this.precioBase = precioBase;
     }
 
@@ -108,7 +108,7 @@ public class Electrodomestico {
         this.consumoEnergetico = consumoEnergetico;
     }
 
-    public void setPeso(float peso) {
+    public void setPeso(double peso) {
         this.peso = peso;
     }
 

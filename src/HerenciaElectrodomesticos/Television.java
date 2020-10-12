@@ -41,7 +41,7 @@ public class Television extends Electrodomestico{
     }
 
     @Override
-    public float precioFinal() {
+    public double precioFinal() {
         float precio = 0;
 
         if (resolucion>=40){
