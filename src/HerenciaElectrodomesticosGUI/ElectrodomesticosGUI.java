@@ -38,6 +38,7 @@ public class ElectrodomesticosGUI {
 	private JLabel colorLabel;
 	private JPanel ventana1;
 
+	private static JFrame frame = new JFrame("ElectrodomesticosGUI");
 	private float precioBase;
 	private String color;
 	private char consumoEnergetico;
@@ -51,11 +52,13 @@ public class ElectrodomesticosGUI {
 //				crearObjeto(lavadora);
 			panelLavadora.setVisible(true);
 			panelTelevision.setVisible(false);
+			frame.pack();
 		});
 		televisorRadioButton.addActionListener(actionEvent -> {
 //				Television television = new Television();
 			panelTelevision.setVisible(true);
 			panelLavadora.setVisible(false);
+			frame.pack();
 		});
 		colorList.addMouseListener(new MouseAdapter() {
 			@Override
@@ -70,7 +73,7 @@ public class ElectrodomesticosGUI {
 	}
 
 	public static void main(String[] args) {
-		JFrame frame = new JFrame("ElectrodomesticosGUI");
+//		JFrame frame = new JFrame("ElectrodomesticosGUI");
 		frame.setContentPane(new ElectrodomesticosGUI().ventana);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
