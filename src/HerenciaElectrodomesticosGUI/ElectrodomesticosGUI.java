@@ -5,6 +5,8 @@ import HerenciaElectrodomesticos.Electrodomestico;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class ElectrodomesticosGUI {
@@ -34,6 +36,7 @@ public class ElectrodomesticosGUI {
 	private JButton generalReporteDePreciosButton;
 	private JLabel pesoLabel;
 	private JLabel colorLabel;
+	private JPanel ventana1;
 
 	private float precioBase;
 	private String color;
@@ -53,6 +56,12 @@ public class ElectrodomesticosGUI {
 //				Television television = new Television();
 			panelTelevision.setVisible(true);
 			panelLavadora.setVisible(false);
+		});
+		colorList.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int indice = colorList.getSelectedIndex();
+			}
 		});
 	}
 
@@ -87,24 +96,34 @@ public class ElectrodomesticosGUI {
 		ventana.setLayout(new GridBagLayout());
 		Font ventanaFont = this.$$$getFont$$$("Hack", -1, 20, ventana.getFont());
 		if (ventanaFont != null) ventana.setFont(ventanaFont);
-		descripcion = new JTextPane();
-		descripcion.setEditable(false);
-		descripcion.setText("Aplicación que crea objetos de tipo electrodomesticos. \nMuestra su precio final, la suma de todos los objetos por su clasificacion.");
+		final JScrollPane scrollPane1 = new JScrollPane();
 		GridBagConstraints gbc;
 		gbc = new GridBagConstraints();
 		gbc.gridx = 1;
 		gbc.gridy = 1;
+		gbc.gridheight = 9;
+		gbc.fill = GridBagConstraints.BOTH;
+		ventana.add(scrollPane1, gbc);
+		ventana1 = new JPanel();
+		ventana1.setLayout(new GridBagLayout());
+		scrollPane1.setViewportView(ventana1);
+		descripcion = new JTextPane();
+		descripcion.setEditable(false);
+		descripcion.setText("Aplicación que crea objetos de tipo electrodomesticos. \nMuestra su precio final, la suma de todos los objetos por su clasificacion.");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 0;
 		gbc.weighty = 1.0;
 		gbc.anchor = GridBagConstraints.WEST;
-		ventana.add(descripcion, gbc);
+		ventana1.add(descripcion, gbc);
 		panelCreacionObjeto = new JPanel();
 		panelCreacionObjeto.setLayout(new GridBagLayout());
 		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
-		gbc.gridy = 3;
+		gbc.gridx = 0;
+		gbc.gridy = 2;
 		gbc.gridheight = 2;
 		gbc.fill = GridBagConstraints.BOTH;
-		ventana.add(panelCreacionObjeto, gbc);
+		ventana1.add(panelCreacionObjeto, gbc);
 		tipoDeObjetoLabel = new JLabel();
 		tipoDeObjetoLabel.setText("Tipo de objeto");
 		gbc = new GridBagConstraints();
@@ -222,10 +241,10 @@ public class ElectrodomesticosGUI {
 		panelTelevision.setLayout(new GridBagLayout());
 		panelTelevision.setVisible(false);
 		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
-		gbc.gridy = 5;
+		gbc.gridx = 0;
+		gbc.gridy = 4;
 		gbc.fill = GridBagConstraints.BOTH;
-		ventana.add(panelTelevision, gbc);
+		ventana1.add(panelTelevision, gbc);
 		panelTelevision.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(-16645630)), null, TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
 		resolucionLabel = new JLabel();
 		resolucionLabel.setText("Resolución");
@@ -264,24 +283,24 @@ public class ElectrodomesticosGUI {
 		panelTelevision.add(falseRB, gbc);
 		final JSeparator separator1 = new JSeparator();
 		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
-		gbc.gridy = 7;
+		gbc.gridx = 0;
+		gbc.gridy = 6;
 		gbc.fill = GridBagConstraints.BOTH;
-		ventana.add(separator1, gbc);
+		ventana1.add(separator1, gbc);
 		final JSeparator separator2 = new JSeparator();
 		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
-		gbc.gridy = 2;
+		gbc.gridx = 0;
+		gbc.gridy = 1;
 		gbc.fill = GridBagConstraints.BOTH;
-		ventana.add(separator2, gbc);
+		ventana1.add(separator2, gbc);
 		panelLavadora = new JPanel();
 		panelLavadora.setLayout(new GridBagLayout());
 		panelLavadora.setVisible(false);
 		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
-		gbc.gridy = 6;
+		gbc.gridx = 0;
+		gbc.gridy = 5;
 		gbc.fill = GridBagConstraints.BOTH;
-		ventana.add(panelLavadora, gbc);
+		ventana1.add(panelLavadora, gbc);
 		cargaLabel = new JLabel();
 		cargaLabel.setText("Carga: ");
 		gbc = new GridBagConstraints();
@@ -300,17 +319,17 @@ public class ElectrodomesticosGUI {
 		crearObjetoButton = new JButton();
 		crearObjetoButton.setText("Crear Objeto");
 		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
-		gbc.gridy = 8;
+		gbc.gridx = 0;
+		gbc.gridy = 7;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
-		ventana.add(crearObjetoButton, gbc);
+		ventana1.add(crearObjetoButton, gbc);
 		generalReporteDePreciosButton = new JButton();
 		generalReporteDePreciosButton.setText("General reporte de precios");
 		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
-		gbc.gridy = 9;
+		gbc.gridx = 0;
+		gbc.gridy = 8;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
-		ventana.add(generalReporteDePreciosButton, gbc);
+		ventana1.add(generalReporteDePreciosButton, gbc);
 		ButtonGroup buttonGroup;
 		buttonGroup = new ButtonGroup();
 		buttonGroup.add(lavadoraRadioButton);

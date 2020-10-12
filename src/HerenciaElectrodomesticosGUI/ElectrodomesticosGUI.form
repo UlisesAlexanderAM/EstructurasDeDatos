@@ -2,299 +2,316 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="HerenciaElectrodomesticosGUI.ElectrodomesticosGUI">
   <grid id="27dc6" binding="ventana" layout-manager="GridBagLayout">
     <constraints>
-      <xy x="20" y="20" width="1344" height="583"/>
+      <xy x="20" y="20" width="1344" height="690"/>
     </constraints>
     <properties>
       <font name="Hack" size="20"/>
     </properties>
     <border type="none"/>
     <children>
-      <component id="4a632" class="javax.swing.JTextPane" binding="descripcion">
+      <scrollpane id="8d589">
         <constraints>
-          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="0.0" weighty="1.0"/>
-        </constraints>
-        <properties>
-          <editable value="false"/>
-          <text value="Aplicación que crea objetos de tipo electrodomesticos. &#10;Muestra su precio final, la suma de todos los objetos por su clasificacion." noi18n="true"/>
-        </properties>
-      </component>
-      <grid id="20d5c" binding="panelCreacionObjeto" layout-manager="GridBagLayout">
-        <constraints>
-          <grid row="3" column="1" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="1" row-span="9" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties/>
         <border type="none"/>
         <children>
-          <component id="ced88" class="javax.swing.JLabel" binding="tipoDeObjetoLabel" default-binding="true">
-            <constraints>
-              <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="50"/>
+          <grid id="c7d9a" binding="ventana1" layout-manager="GridBagLayout">
+            <constraints/>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="4a632" class="javax.swing.JTextPane" binding="descripcion">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="1.0"/>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <text value="Aplicación que crea objetos de tipo electrodomesticos. &#10;Muestra su precio final, la suma de todos los objetos por su clasificacion." noi18n="true"/>
+                </properties>
+              </component>
+              <grid id="20d5c" binding="panelCreacionObjeto" layout-manager="GridBagLayout">
+                <constraints>
+                  <grid row="2" column="0" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="ced88" class="javax.swing.JLabel" binding="tipoDeObjetoLabel" default-binding="true">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="50"/>
+                      </grid>
+                      <gridbag weightx="0.0" weighty="0.0"/>
+                    </constraints>
+                    <properties>
+                      <text value="Tipo de objeto"/>
+                    </properties>
+                  </component>
+                  <component id="7f632" class="javax.swing.JRadioButton" binding="lavadoraRadioButton">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="50"/>
+                      </grid>
+                      <gridbag weightx="0.0" weighty="0.0"/>
+                    </constraints>
+                    <properties>
+                      <text value="Lavadora"/>
+                      <toolTipText value="Lavadora"/>
+                    </properties>
+                  </component>
+                  <component id="9fd0d" class="javax.swing.JLabel" binding="colorLabel">
+                    <constraints>
+                      <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <gridbag weightx="0.0" weighty="0.0"/>
+                    </constraints>
+                    <properties>
+                      <text value="Color"/>
+                    </properties>
+                  </component>
+                  <component id="c887e" class="javax.swing.JList" binding="colorList">
+                    <constraints>
+                      <grid row="1" column="2" row-span="3" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="50"/>
+                      </grid>
+                      <gridbag weightx="0.0" weighty="0.0"/>
+                    </constraints>
+                    <properties>
+                      <model>
+                        <item value="Blanco"/>
+                        <item value="Negro"/>
+                        <item value="Rojo"/>
+                        <item value="Azul"/>
+                        <item value="Gris"/>
+                      </model>
+                      <toolTipText value="Color"/>
+                    </properties>
+                  </component>
+                  <component id="67e0d" class="javax.swing.JRadioButton" binding="televisorRadioButton">
+                    <constraints>
+                      <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <gridbag weightx="0.0" weighty="0.0"/>
+                    </constraints>
+                    <properties>
+                      <text value="Televisor"/>
+                      <toolTipText value="Televisor"/>
+                    </properties>
+                  </component>
+                  <component id="71655" class="javax.swing.JRadioButton" binding="otroElectrodomestico">
+                    <constraints>
+                      <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <gridbag weightx="0.0" weighty="0.0"/>
+                    </constraints>
+                    <properties>
+                      <text value="Otro Electrodomestico"/>
+                      <toolTipText value="Otro Electrodomestico"/>
+                    </properties>
+                  </component>
+                  <component id="9481a" class="javax.swing.JLabel" binding="precioLabel">
+                    <constraints>
+                      <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <gridbag weightx="0.0" weighty="0.0"/>
+                    </constraints>
+                    <properties>
+                      <text value="Precio: "/>
+                    </properties>
+                  </component>
+                  <component id="2ec8d" class="javax.swing.JTextField" binding="precioTextField">
+                    <constraints>
+                      <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="-1"/>
+                      </grid>
+                      <gridbag weightx="0.0" weighty="0.0"/>
+                    </constraints>
+                    <properties>
+                      <text value=""/>
+                      <toolTipText value="Ingrese el precio"/>
+                    </properties>
+                  </component>
+                  <component id="58be6" class="javax.swing.JLabel" binding="consumoEnergeticoLabel">
+                    <constraints>
+                      <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <gridbag weightx="0.0" weighty="0.0"/>
+                    </constraints>
+                    <properties>
+                      <text value="Consumo Energetico"/>
+                    </properties>
+                  </component>
+                  <component id="1a26" class="javax.swing.JList" binding="consumoEnergeticoList">
+                    <constraints>
+                      <grid row="1" column="3" row-span="3" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="50"/>
+                      </grid>
+                      <gridbag weightx="0.0" weighty="0.0"/>
+                    </constraints>
+                    <properties>
+                      <layoutOrientation value="1"/>
+                      <model>
+                        <item value="A"/>
+                        <item value="B"/>
+                        <item value="C"/>
+                        <item value="D"/>
+                        <item value="E"/>
+                        <item value="F"/>
+                      </model>
+                      <selectionMode value="0"/>
+                      <toolTipText value="Consumo energetico"/>
+                    </properties>
+                  </component>
+                  <component id="16c9e" class="javax.swing.JLabel" binding="pesoLabel">
+                    <constraints>
+                      <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <gridbag weightx="0.0" weighty="0.0"/>
+                    </constraints>
+                    <properties>
+                      <text value="Peso: "/>
+                    </properties>
+                  </component>
+                  <component id="45588" class="javax.swing.JTextField" binding="pesoTextField">
+                    <constraints>
+                      <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="-1"/>
+                      </grid>
+                      <gridbag weightx="0.0" weighty="0.0"/>
+                    </constraints>
+                    <properties>
+                      <toolTipText value="Ingrese el precio"/>
+                    </properties>
+                  </component>
+                </children>
               </grid>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
-            <properties>
-              <text value="Tipo de objeto"/>
-            </properties>
-          </component>
-          <component id="7f632" class="javax.swing.JRadioButton" binding="lavadoraRadioButton">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="50"/>
+              <grid id="f2af0" binding="panelTelevision" layout-manager="GridBagLayout">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <visible value="false"/>
+                </properties>
+                <border type="line">
+                  <color color="-16645630"/>
+                </border>
+                <children>
+                  <component id="3d538" class="javax.swing.JLabel" binding="resolucionLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <gridbag weightx="0.0" weighty="0.0"/>
+                    </constraints>
+                    <properties>
+                      <text value="Resolución"/>
+                    </properties>
+                  </component>
+                  <component id="72fe4" class="javax.swing.JLabel" binding="sintonizadorTDTLabel">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <gridbag weightx="0.0" weighty="0.0"/>
+                    </constraints>
+                    <properties>
+                      <text value="Sintonizador TDT"/>
+                    </properties>
+                  </component>
+                  <component id="84350" class="javax.swing.JRadioButton" binding="trueRB">
+                    <constraints>
+                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                      <gridbag weightx="0.0" weighty="0.0"/>
+                    </constraints>
+                    <properties>
+                      <text value="Si"/>
+                    </properties>
+                  </component>
+                  <component id="e57c" class="javax.swing.JTextField" binding="resolucionTextField">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="-1"/>
+                      </grid>
+                      <gridbag weightx="0.0" weighty="0.0"/>
+                    </constraints>
+                    <properties>
+                      <text value="Ingrese la resolucion"/>
+                    </properties>
+                  </component>
+                  <component id="dc256" class="javax.swing.JRadioButton" binding="falseRB">
+                    <constraints>
+                      <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                      <gridbag weightx="0.0" weighty="0.0"/>
+                    </constraints>
+                    <properties>
+                      <text value="No"/>
+                    </properties>
+                  </component>
+                </children>
               </grid>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
-            <properties>
-              <text value="Lavadora"/>
-              <toolTipText value="Lavadora"/>
-            </properties>
-          </component>
-          <component id="9fd0d" class="javax.swing.JLabel" binding="colorLabel">
-            <constraints>
-              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
-            <properties>
-              <text value="Color"/>
-            </properties>
-          </component>
-          <component id="c887e" class="javax.swing.JList" binding="colorList">
-            <constraints>
-              <grid row="1" column="2" row-span="3" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="50"/>
+              <component id="3a164" class="javax.swing.JSeparator">
+                <constraints>
+                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="671c0" class="javax.swing.JSeparator">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties/>
+              </component>
+              <grid id="fe8f" binding="panelLavadora" layout-manager="GridBagLayout">
+                <constraints>
+                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <visible value="false"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="5830e" class="javax.swing.JLabel" binding="cargaLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <gridbag weightx="0.0" weighty="0.0"/>
+                    </constraints>
+                    <properties>
+                      <text value="Carga: "/>
+                    </properties>
+                  </component>
+                  <component id="aa8ed" class="javax.swing.JTextField" binding="cargaTextField" default-binding="true">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="-1"/>
+                      </grid>
+                      <gridbag weightx="0.0" weighty="0.0"/>
+                    </constraints>
+                    <properties>
+                      <text value="Carga"/>
+                    </properties>
+                  </component>
+                </children>
               </grid>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
-            <properties>
-              <model>
-                <item value="Blanco"/>
-                <item value="Negro"/>
-                <item value="Rojo"/>
-                <item value="Azul"/>
-                <item value="Gris"/>
-              </model>
-              <toolTipText value="Color"/>
-            </properties>
-          </component>
-          <component id="67e0d" class="javax.swing.JRadioButton" binding="televisorRadioButton">
-            <constraints>
-              <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
-            <properties>
-              <text value="Televisor"/>
-              <toolTipText value="Televisor"/>
-            </properties>
-          </component>
-          <component id="71655" class="javax.swing.JRadioButton" binding="otroElectrodomestico">
-            <constraints>
-              <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
-            <properties>
-              <text value="Otro Electrodomestico"/>
-              <toolTipText value="Otro Electrodomestico"/>
-            </properties>
-          </component>
-          <component id="9481a" class="javax.swing.JLabel" binding="precioLabel">
-            <constraints>
-              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
-            <properties>
-              <text value="Precio: "/>
-            </properties>
-          </component>
-          <component id="2ec8d" class="javax.swing.JTextField" binding="precioTextField">
-            <constraints>
-              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
-            <properties>
-              <text value=""/>
-              <toolTipText value="Ingrese el precio"/>
-            </properties>
-          </component>
-          <component id="58be6" class="javax.swing.JLabel" binding="consumoEnergeticoLabel">
-            <constraints>
-              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
-            <properties>
-              <text value="Consumo Energetico"/>
-            </properties>
-          </component>
-          <component id="1a26" class="javax.swing.JList" binding="consumoEnergeticoList">
-            <constraints>
-              <grid row="1" column="3" row-span="3" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="2" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="50"/>
-              </grid>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
-            <properties>
-              <layoutOrientation value="1"/>
-              <model>
-                <item value="A"/>
-                <item value="B"/>
-                <item value="C"/>
-                <item value="D"/>
-                <item value="E"/>
-                <item value="F"/>
-              </model>
-              <selectionMode value="0"/>
-              <toolTipText value="Consumo energetico"/>
-            </properties>
-          </component>
-          <component id="16c9e" class="javax.swing.JLabel" binding="pesoLabel">
-            <constraints>
-              <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
-            <properties>
-              <text value="Peso: "/>
-            </properties>
-          </component>
-          <component id="45588" class="javax.swing.JTextField" binding="pesoTextField">
-            <constraints>
-              <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
-            <properties>
-              <toolTipText value="Ingrese el precio"/>
-            </properties>
-          </component>
+              <component id="53e91" class="javax.swing.JButton" binding="crearObjetoButton" default-binding="true">
+                <constraints>
+                  <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Crear Objeto"/>
+                </properties>
+              </component>
+              <component id="35b03" class="javax.swing.JButton" binding="generalReporteDePreciosButton" default-binding="true">
+                <constraints>
+                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="General reporte de precios"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
         </children>
-      </grid>
-      <grid id="f2af0" binding="panelTelevision" layout-manager="GridBagLayout">
-        <constraints>
-          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="0.0" weighty="0.0"/>
-        </constraints>
-        <properties>
-          <visible value="false"/>
-        </properties>
-        <border type="line">
-          <color color="-16645630"/>
-        </border>
-        <children>
-          <component id="3d538" class="javax.swing.JLabel" binding="resolucionLabel">
-            <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
-            <properties>
-              <text value="Resolución"/>
-            </properties>
-          </component>
-          <component id="72fe4" class="javax.swing.JLabel" binding="sintonizadorTDTLabel">
-            <constraints>
-              <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
-            <properties>
-              <text value="Sintonizador TDT"/>
-            </properties>
-          </component>
-          <component id="84350" class="javax.swing.JRadioButton" binding="trueRB">
-            <constraints>
-              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
-            <properties>
-              <text value="Si"/>
-            </properties>
-          </component>
-          <component id="e57c" class="javax.swing.JTextField" binding="resolucionTextField">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
-            <properties>
-              <text value="Ingrese la resolucion"/>
-            </properties>
-          </component>
-          <component id="dc256" class="javax.swing.JRadioButton" binding="falseRB">
-            <constraints>
-              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
-            <properties>
-              <text value="No"/>
-            </properties>
-          </component>
-        </children>
-      </grid>
-      <component id="3a164" class="javax.swing.JSeparator">
-        <constraints>
-          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="0.0" weighty="0.0"/>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="671c0" class="javax.swing.JSeparator">
-        <constraints>
-          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="0.0" weighty="0.0"/>
-        </constraints>
-        <properties/>
-      </component>
-      <grid id="fe8f" binding="panelLavadora" layout-manager="GridBagLayout">
-        <constraints>
-          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="0.0" weighty="0.0"/>
-        </constraints>
-        <properties>
-          <visible value="false"/>
-        </properties>
-        <border type="none"/>
-        <children>
-          <component id="5830e" class="javax.swing.JLabel" binding="cargaLabel">
-            <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
-            <properties>
-              <text value="Carga: "/>
-            </properties>
-          </component>
-          <component id="aa8ed" class="javax.swing.JTextField" binding="cargaTextField" default-binding="true">
-            <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
-            <properties>
-              <text value="Carga"/>
-            </properties>
-          </component>
-        </children>
-      </grid>
-      <component id="53e91" class="javax.swing.JButton" binding="crearObjetoButton" default-binding="true">
-        <constraints>
-          <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="0.0" weighty="0.0"/>
-        </constraints>
-        <properties>
-          <text value="Crear Objeto"/>
-        </properties>
-      </component>
-      <component id="35b03" class="javax.swing.JButton" binding="generalReporteDePreciosButton" default-binding="true">
-        <constraints>
-          <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="0.0" weighty="0.0"/>
-        </constraints>
-        <properties>
-          <text value="General reporte de precios"/>
-        </properties>
-      </component>
+      </scrollpane>
     </children>
   </grid>
   <buttonGroups>
