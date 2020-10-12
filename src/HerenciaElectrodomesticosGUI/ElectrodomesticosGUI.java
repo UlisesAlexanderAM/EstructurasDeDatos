@@ -42,10 +42,22 @@ public class ElectrodomesticosGUI {
 
 	public static ArrayList<Electrodomestico> electrodomesticos = new ArrayList<>(10);
 
-	public void crearObjeto() {
-		String tipoObjeto;
+	public ElectrodomesticosGUI() {
+		lavadoraRadioButton.addActionListener(actionEvent -> {
+//				Lavadora lavadora = new Lavadora();
+//				crearObjeto(lavadora);
+			panelLavadora.setVisible(true);
+			panelTelevision.setVisible(false);
+		});
+		televisorRadioButton.addActionListener(actionEvent -> {
+//				Television television = new Television();
+			panelTelevision.setVisible(true);
+			panelLavadora.setVisible(false);
+		});
+	}
 
-
+	public void crearObjeto(Electrodomestico electrodomestico) {
+//		electrodomestico;
 	}
 
 	public static void main(String[] args) {
@@ -103,19 +115,20 @@ public class ElectrodomesticosGUI {
 		panelCreacionObjeto.add(tipoDeObjetoLabel, gbc);
 		lavadoraRadioButton = new JRadioButton();
 		lavadoraRadioButton.setText("Lavadora");
+		lavadoraRadioButton.setToolTipText("Lavadora");
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
 		gbc.gridy = 1;
 		gbc.gridwidth = 2;
 		gbc.fill = GridBagConstraints.BOTH;
 		panelCreacionObjeto.add(lavadoraRadioButton, gbc);
-		final JLabel label1 = new JLabel();
-		label1.setText("Color");
+		colorLabel = new JLabel();
+		colorLabel.setText("Color");
 		gbc = new GridBagConstraints();
 		gbc.gridx = 2;
 		gbc.gridy = 0;
 		gbc.anchor = GridBagConstraints.WEST;
-		panelCreacionObjeto.add(label1, gbc);
+		panelCreacionObjeto.add(colorLabel, gbc);
 		colorList = new JList();
 		final DefaultListModel defaultListModel1 = new DefaultListModel();
 		defaultListModel1.addElement("Blanco");
@@ -124,6 +137,7 @@ public class ElectrodomesticosGUI {
 		defaultListModel1.addElement("Azul");
 		defaultListModel1.addElement("Gris");
 		colorList.setModel(defaultListModel1);
+		colorList.setToolTipText("Color");
 		gbc = new GridBagConstraints();
 		gbc.gridx = 2;
 		gbc.gridy = 1;
@@ -132,6 +146,7 @@ public class ElectrodomesticosGUI {
 		panelCreacionObjeto.add(colorList, gbc);
 		televisorRadioButton = new JRadioButton();
 		televisorRadioButton.setText("Televisor");
+		televisorRadioButton.setToolTipText("Televisor");
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
 		gbc.gridy = 2;
@@ -140,6 +155,7 @@ public class ElectrodomesticosGUI {
 		panelCreacionObjeto.add(televisorRadioButton, gbc);
 		otroElectrodomestico = new JRadioButton();
 		otroElectrodomestico.setText("Otro Electrodomestico");
+		otroElectrodomestico.setToolTipText("Otro Electrodomestico");
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
 		gbc.gridy = 3;
@@ -154,8 +170,8 @@ public class ElectrodomesticosGUI {
 		gbc.anchor = GridBagConstraints.WEST;
 		panelCreacionObjeto.add(precioLabel, gbc);
 		precioTextField = new JTextField();
-		precioTextField.setText("Ingrese el precio del producto");
-		precioTextField.setToolTipText("");
+		precioTextField.setText("");
+		precioTextField.setToolTipText("Ingrese el precio");
 		gbc = new GridBagConstraints();
 		gbc.gridx = 1;
 		gbc.gridy = 4;
@@ -180,20 +196,22 @@ public class ElectrodomesticosGUI {
 		defaultListModel2.addElement("F");
 		consumoEnergeticoList.setModel(defaultListModel2);
 		consumoEnergeticoList.setSelectionMode(0);
+		consumoEnergeticoList.setToolTipText("Consumo energetico");
 		gbc = new GridBagConstraints();
 		gbc.gridx = 3;
 		gbc.gridy = 1;
 		gbc.gridheight = 3;
 		gbc.fill = GridBagConstraints.VERTICAL;
 		panelCreacionObjeto.add(consumoEnergeticoList, gbc);
-		final JLabel label2 = new JLabel();
-		label2.setText("Peso: ");
+		pesoLabel = new JLabel();
+		pesoLabel.setText("Peso: ");
 		gbc = new GridBagConstraints();
 		gbc.gridx = 2;
 		gbc.gridy = 4;
 		gbc.anchor = GridBagConstraints.WEST;
-		panelCreacionObjeto.add(label2, gbc);
+		panelCreacionObjeto.add(pesoLabel, gbc);
 		pesoTextField = new JTextField();
+		pesoTextField.setToolTipText("Ingrese el precio");
 		gbc = new GridBagConstraints();
 		gbc.gridx = 3;
 		gbc.gridy = 4;
