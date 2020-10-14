@@ -6,6 +6,7 @@ import HerenciaElectrodomesticos.Television;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -39,6 +40,15 @@ public class ElectrodomesticosGUI {
 	private JLabel pesoLabel;
 	private JLabel colorLabel;
 	private JPanel ventana1;
+	private JTable reporteTable;
+	private JButton regresarButton;
+	private JPanel reportePanel;
+	private JScrollPane reporteJSrollPane;
+	private JScrollPane creacionJScrollPane;
+	private JLabel totalElectrodomesticosLabel;
+	private JLabel totalTelevisoresLabel;
+	private JLabel totalLavadorasLabel;
+	private JScrollPane tablaJScrollPane;
 
 	private static final JFrame frame = new JFrame("ElectrodomesticosGUI");
 	private int indice = 0;
@@ -46,7 +56,7 @@ public class ElectrodomesticosGUI {
 	private final char[] consumoEnergetico = {'A', 'B', 'C', 'D', 'E', 'F'};
 	private char seleccionConsumoEnergetico;
 
-	public static ArrayList<Electrodomestico> electrodomesticos = new ArrayList<>(10);
+	public static ArrayList<Electrodomestico> electrodomesticos = new ArrayList<>();
 
 	public ElectrodomesticosGUI() {
 		lavadoraRadioButton.addActionListener(actionEvent -> {
@@ -65,13 +75,14 @@ public class ElectrodomesticosGUI {
 		});
 		otroElectrodomestico.addActionListener(actionEvent -> {
 			Electrodomestico otroElectrodomestico = new Electrodomestico();
-			electrodomesticos.add(otroElectrodomestico);
+			electrodomesticos.add(indice, otroElectrodomestico);
+			panelLavadora.setVisible(false);
+			panelTelevision.setVisible(false);
 		});
 		crearObjetoButton.addActionListener(actionEvent -> {
 			crearObjeto();
-			new JOptionPane().createDialog("Confirmacion");
 			indice = +1;
-			ventana.updateUI();
+			reiniciar();
 		});
 		trueRB.addActionListener(actionEvent -> sTDT = true);
 		falseRB.addActionListener(actionEvent -> sTDT = false);
@@ -81,6 +92,63 @@ public class ElectrodomesticosGUI {
 				seleccionConsumoEnergetico = consumoEnergetico[consumoEnergeticoList.getSelectedIndex()];
 			}
 		});
+		generalReporteDePreciosButton.addActionListener(actionEvent -> {
+			mostrarReporte();
+			frame.pack();
+		});
+		regresarButton.addActionListener(actionEvent -> {
+			creacionJScrollPane.setVisible(true);
+			reporteJSrollPane.setVisible(false);
+			frame.pack();
+		});
+	}
+
+	private void mostrarReporte() {
+		DefaultTableModel modelo = new DefaultTableModel();
+		modelo.addColumn("Tipo de electrodoméstico");
+		modelo.addColumn("Precio Base");
+		modelo.addColumn("Color");
+		modelo.addColumn("Consumo Energetico");
+		modelo.addColumn("Peso");
+		modelo.addColumn("Precio Final");
+		modelo.addColumn("Carga");
+		modelo.addColumn("Resolución");
+		modelo.addColumn("Sintonizador TDT");
+		double totalElectrodomesticos = 0;
+		double totalTelevisores = 0;
+		double totalLavadoras = 0;
+		for (Electrodomestico electrodomestico : electrodomesticos) {
+			Object[] fila = new Object[9];
+			double precioFinal = electrodomestico.precioFinal();
+			fila[0] = electrodomestico.getClass().getSimpleName();
+			fila[1] = electrodomestico.getPrecioBase();
+			fila[2] = electrodomestico.getColor();
+			fila[3] = electrodomestico.getConsumoEnergetico();
+			fila[4] = electrodomestico.getPeso();
+			fila[5] = precioFinal;
+			if (electrodomestico instanceof Lavadora) {
+				fila[6] = ((Lavadora) electrodomestico).getCarga();
+				totalLavadoras += precioFinal;
+			} else
+				fila[6] = "NA";
+			if (electrodomestico instanceof Television) {
+				fila[7] = ((Television) electrodomestico).getResolucion();
+				fila[8] = ((Television) electrodomestico).isSintonizadorTDT();
+				totalTelevisores += precioFinal;
+			} else {
+				fila[7] = "NA";
+				fila[8] = "NA";
+			}
+			modelo.addRow(fila);
+			totalElectrodomesticos += electrodomestico.precioFinal();
+		}
+		reporteTable.setModel(modelo);
+		reporteTable.getColumnModel().getColumn(0).setPreferredWidth(150);
+		creacionJScrollPane.setVisible(false);
+		reporteJSrollPane.setVisible(true);
+		totalElectrodomesticosLabel.setText("Total electrodomésticos: " + totalElectrodomesticos);
+		totalTelevisoresLabel.setText("Total Televisores: " + totalTelevisores);
+		totalLavadorasLabel.setText("Total Lavadoras: " + totalLavadoras);
 	}
 
 	public void crearObjeto() {
@@ -102,6 +170,23 @@ public class ElectrodomesticosGUI {
 		}
 	}
 
+	public void reiniciar() {
+		colorList.clearSelection();
+		consumoEnergeticoList.clearSelection();
+		precioTextField.setText("");
+		pesoTextField.setText("");
+		cargaTextField.setText("");
+		resolucionTextField.setText("");
+		lavadoraRadioButton.setSelected(false);
+		televisorRadioButton.setSelected(false);
+		otroElectrodomestico.setSelected(false);
+		trueRB.setSelected(false);
+		falseRB.setSelected(false);
+		panelTelevision.setVisible(false);
+		panelLavadora.setVisible(false);
+		frame.pack();
+	}
+
 	public static void main(String[] args) {
 //		JFrame frame = new JFrame("ElectrodomesticosGUI");
 		frame.setContentPane(new ElectrodomesticosGUI().ventana);
@@ -109,6 +194,7 @@ public class ElectrodomesticosGUI {
 		frame.pack();
 		frame.setVisible(true);
 	}
+
 
 	{
 // GUI initializer generated by IntelliJ IDEA GUI Designer
@@ -129,17 +215,18 @@ public class ElectrodomesticosGUI {
 		ventana.setLayout(new GridBagLayout());
 		Font ventanaFont = this.$$$getFont$$$("Hack", -1, 20, ventana.getFont());
 		if (ventanaFont != null) ventana.setFont(ventanaFont);
-		final JScrollPane scrollPane1 = new JScrollPane();
+		creacionJScrollPane = new JScrollPane();
+		creacionJScrollPane.setVisible(true);
 		GridBagConstraints gbc;
 		gbc = new GridBagConstraints();
 		gbc.gridx = 1;
 		gbc.gridy = 1;
 		gbc.gridheight = 9;
 		gbc.fill = GridBagConstraints.BOTH;
-		ventana.add(scrollPane1, gbc);
+		ventana.add(creacionJScrollPane, gbc);
 		ventana1 = new JPanel();
 		ventana1.setLayout(new GridBagLayout());
-		scrollPane1.setViewportView(ventana1);
+		creacionJScrollPane.setViewportView(ventana1);
 		descripcion = new JTextPane();
 		descripcion.setEditable(false);
 		descripcion.setText("Aplicación que crea objetos de tipo electrodomesticos. \nMuestra su precio final, la suma de todos los objetos por su clasificacion.");
@@ -153,7 +240,7 @@ public class ElectrodomesticosGUI {
 		panelCreacionObjeto.setLayout(new GridBagLayout());
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
-		gbc.gridy = 2;
+		gbc.gridy = 1;
 		gbc.gridheight = 2;
 		gbc.fill = GridBagConstraints.BOTH;
 		ventana1.add(panelCreacionObjeto, gbc);
@@ -166,6 +253,7 @@ public class ElectrodomesticosGUI {
 		gbc.fill = GridBagConstraints.BOTH;
 		panelCreacionObjeto.add(tipoDeObjetoLabel, gbc);
 		lavadoraRadioButton = new JRadioButton();
+		lavadoraRadioButton.setSelected(false);
 		lavadoraRadioButton.setText("Lavadora");
 		lavadoraRadioButton.setToolTipText("Lavadora");
 		gbc = new GridBagConstraints();
@@ -263,7 +351,7 @@ public class ElectrodomesticosGUI {
 		gbc.anchor = GridBagConstraints.WEST;
 		panelCreacionObjeto.add(pesoLabel, gbc);
 		pesoTextField = new JTextField();
-		pesoTextField.setToolTipText("Ingrese el precio");
+		pesoTextField.setToolTipText("Ingrese el peso");
 		gbc = new GridBagConstraints();
 		gbc.gridx = 3;
 		gbc.gridy = 4;
@@ -275,7 +363,7 @@ public class ElectrodomesticosGUI {
 		panelTelevision.setVisible(false);
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
-		gbc.gridy = 4;
+		gbc.gridy = 3;
 		gbc.fill = GridBagConstraints.BOTH;
 		ventana1.add(panelTelevision, gbc);
 		panelTelevision.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(-16645630)), null, TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
@@ -289,7 +377,7 @@ public class ElectrodomesticosGUI {
 		sintonizadorTDTLabel = new JLabel();
 		sintonizadorTDTLabel.setText("Sintonizador TDT");
 		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
+		gbc.gridx = 2;
 		gbc.gridy = 0;
 		gbc.gridwidth = 2;
 		gbc.anchor = GridBagConstraints.WEST;
@@ -297,11 +385,12 @@ public class ElectrodomesticosGUI {
 		trueRB = new JRadioButton();
 		trueRB.setText("Si");
 		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
+		gbc.gridx = 2;
 		gbc.gridy = 1;
 		panelTelevision.add(trueRB, gbc);
 		resolucionTextField = new JTextField();
-		resolucionTextField.setText("Ingrese la resolucion");
+		resolucionTextField.setText("");
+		resolucionTextField.setToolTipText("Ingrese la resolucion");
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
 		gbc.gridy = 1;
@@ -311,27 +400,21 @@ public class ElectrodomesticosGUI {
 		falseRB = new JRadioButton();
 		falseRB.setText("No");
 		gbc = new GridBagConstraints();
-		gbc.gridx = 2;
+		gbc.gridx = 3;
 		gbc.gridy = 1;
 		panelTelevision.add(falseRB, gbc);
-		final JSeparator separator1 = new JSeparator();
+		final JPanel spacer1 = new JPanel();
 		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 6;
-		gbc.fill = GridBagConstraints.BOTH;
-		ventana1.add(separator1, gbc);
-		final JSeparator separator2 = new JSeparator();
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 1;
-		gbc.fill = GridBagConstraints.BOTH;
-		ventana1.add(separator2, gbc);
+		gbc.gridx = 1;
+		gbc.gridy = 0;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		panelTelevision.add(spacer1, gbc);
 		panelLavadora = new JPanel();
 		panelLavadora.setLayout(new GridBagLayout());
 		panelLavadora.setVisible(false);
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
-		gbc.gridy = 5;
+		gbc.gridy = 4;
 		gbc.fill = GridBagConstraints.BOTH;
 		ventana1.add(panelLavadora, gbc);
 		cargaLabel = new JLabel();
@@ -342,10 +425,12 @@ public class ElectrodomesticosGUI {
 		gbc.anchor = GridBagConstraints.WEST;
 		panelLavadora.add(cargaLabel, gbc);
 		cargaTextField = new JTextField();
-		cargaTextField.setText("Carga");
+		cargaTextField.setHorizontalAlignment(10);
+		cargaTextField.setText("");
+		cargaTextField.setToolTipText("Ingrese la carga");
 		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
-		gbc.gridy = 0;
+		gbc.gridx = 0;
+		gbc.gridy = 1;
 		gbc.anchor = GridBagConstraints.WEST;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		panelLavadora.add(cargaTextField, gbc);
@@ -353,16 +438,78 @@ public class ElectrodomesticosGUI {
 		crearObjetoButton.setText("Crear Objeto");
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
-		gbc.gridy = 7;
+		gbc.gridy = 5;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		ventana1.add(crearObjetoButton, gbc);
 		generalReporteDePreciosButton = new JButton();
 		generalReporteDePreciosButton.setText("General reporte de precios");
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
-		gbc.gridy = 8;
+		gbc.gridy = 6;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		ventana1.add(generalReporteDePreciosButton, gbc);
+		reporteJSrollPane = new JScrollPane();
+		reporteJSrollPane.setVisible(false);
+		gbc = new GridBagConstraints();
+		gbc.gridx = 1;
+		gbc.gridy = 10;
+		gbc.fill = GridBagConstraints.BOTH;
+		ventana.add(reporteJSrollPane, gbc);
+		reportePanel = new JPanel();
+		reportePanel.setLayout(new GridBagLayout());
+		reporteJSrollPane.setViewportView(reportePanel);
+		regresarButton = new JButton();
+		regresarButton.setText("Regresar");
+		regresarButton.setVisible(true);
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 4;
+		gbc.gridwidth = 10;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		reportePanel.add(regresarButton, gbc);
+		totalElectrodomesticosLabel = new JLabel();
+		totalElectrodomesticosLabel.setName("");
+		totalElectrodomesticosLabel.setText("");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		gbc.gridwidth = 10;
+		gbc.anchor = GridBagConstraints.WEST;
+		reportePanel.add(totalElectrodomesticosLabel, gbc);
+		totalTelevisoresLabel = new JLabel();
+		totalTelevisoresLabel.setText("");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 2;
+		gbc.gridwidth = 10;
+		gbc.anchor = GridBagConstraints.WEST;
+		reportePanel.add(totalTelevisoresLabel, gbc);
+		totalLavadorasLabel = new JLabel();
+		totalLavadorasLabel.setText("");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 3;
+		gbc.gridwidth = 10;
+		gbc.anchor = GridBagConstraints.WEST;
+		reportePanel.add(totalLavadorasLabel, gbc);
+		tablaJScrollPane = new JScrollPane();
+		tablaJScrollPane.setPreferredSize(new Dimension(1280, 128));
+		tablaJScrollPane.setVisible(true);
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.gridwidth = 10;
+		gbc.fill = GridBagConstraints.BOTH;
+		reportePanel.add(tablaJScrollPane, gbc);
+		reporteTable = new JTable();
+		reporteTable.setAutoCreateColumnsFromModel(true);
+		reporteTable.setAutoCreateRowSorter(false);
+		reporteTable.setAutoResizeMode(4);
+		reporteTable.setAutoscrolls(false);
+		reporteTable.setDropMode(DropMode.USE_SELECTION);
+		reporteTable.setMinimumSize(new Dimension(100, 32));
+		reporteTable.setVisible(true);
+		tablaJScrollPane.setViewportView(reporteTable);
 		ButtonGroup buttonGroup;
 		buttonGroup = new ButtonGroup();
 		buttonGroup.add(lavadoraRadioButton);
