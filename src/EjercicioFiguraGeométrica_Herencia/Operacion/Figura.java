@@ -19,7 +19,7 @@ public abstract class Figura {
 
     public void mostrarArea() {
         imprimir("\nEl area de " +this.getClass().getSimpleName()+
-                " es: "+calcularArea(base, altura));
+                " es: "+calcularArea());
     }
 
     public void mostrarPerimetro(){
@@ -27,7 +27,7 @@ public abstract class Figura {
                 " es: "+calcularPerimetro());
     }
 
-    public abstract double calcularArea(float base, float altura);
+    public abstract double calcularArea();
 
     public abstract float calcularPerimetro();
 
@@ -47,11 +47,11 @@ public abstract class Figura {
         return perimetro;
     }
 
-    public void setAltura(int altura) {
+    public void setAltura(float altura) {
         this.altura = altura;
     }
 
-    public void setBase(int base) {
+    public void setBase(float base) {
         this.base = base;
     }
 }

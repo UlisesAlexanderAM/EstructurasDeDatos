@@ -9,8 +9,8 @@ public class Rectangulo extends Figura{
     }
 
     @Override
-    public double calcularArea(float base, float altura) {
-        return area = base * altura;
+    public double calcularArea() {
+        return area = this.base * this.altura;
     }
 
     @Override

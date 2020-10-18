@@ -1,11 +1,13 @@
 package IntefazConUsuario;
 
+import Operacion.Rectangulo;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class Rectangulo extends Inicio {
+public class PestañaRectangulo extends Inicio {
 	private JPanel recatanguloJPanel;
 	private JTextField instruccionesTextField;
 	private JTextField baseTextField;
@@ -18,9 +20,8 @@ public class Rectangulo extends Inicio {
 	private JLabel perimetroJLabel;
 	private JLabel areaJLabel;
 
-	public Rectangulo() {
-		instruccionesTextField.setText("Aquí podras calcular el area y perimetro de un rectangulo." +
-				"\nProporcionando la base y la altura.");
+	public PestañaRectangulo() {
+		instruccionesTextField.setText("Aquí podras calcular el area y perimetro de un rectangulo.\nProporcionando la base y la altura.\nPara mostrar los resultados presionar el boton \"Calcular\"");
 		baseJLabel.setText("Base:");
 		baseJLabel.setLabelFor(baseTextField);
 		baseTextField.setText("Base");
@@ -44,6 +45,17 @@ public class Rectangulo extends Inicio {
 				if (alturaTextField.getText().equals("Altura"))
 					baseTextField.setText("");
 			}
+		});
+		calcularButton.addActionListener(actionEvent -> {
+			Rectangulo rectangulo = new Rectangulo();
+			rectangulo.setAltura(Float.parseFloat(alturaTextField.getText()));
+			rectangulo.setBase(Float.parseFloat(baseTextField.getText()));
+			double area;
+			float perimetro;
+			perimetro = rectangulo.calcularPerimetro();
+			perimetroJLabel.setText("El perimetro del rectangulo es: "+perimetro);
+			area = rectangulo.calcularArea();
+			areaJLabel.setText("El area del rectangulo es: "+area);
 		});
 	}
 
