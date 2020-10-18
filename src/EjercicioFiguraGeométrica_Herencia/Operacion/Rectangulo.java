@@ -3,12 +3,12 @@ package Operacion;
 public class Rectangulo extends Figura{
     public Rectangulo(){
     }
-    public Rectangulo(int base, int altura){
+    public Rectangulo(float base, float altura){
         super(base, altura);
     }
 
     @Override
-    public float calcularArea(int base, int altura) {
+    public double calcularArea(float base, float altura) {
         return area=base*altura;
     }
 }

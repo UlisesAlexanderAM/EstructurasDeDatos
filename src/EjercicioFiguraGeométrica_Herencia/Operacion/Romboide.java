@@ -4,12 +4,12 @@ public class Romboide extends Figura {
     public Romboide(){
     }
 
-    public Romboide(int base, int altura){
+    public Romboide(float base, float altura){
         super(base,altura);
     }
 
     @Override
-    public float calcularArea(int base, int altura) {
+    public double calcularArea(float base, float altura) {
         return area=base*altura;
     }
 }

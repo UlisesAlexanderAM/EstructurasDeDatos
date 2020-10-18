@@ -5,12 +5,12 @@ public class Triangulo extends Figura{
     public Triangulo(){
     }
 
-    public Triangulo(int base, int altura){
+    public Triangulo(float base, float altura){
         super(base, altura);
     }
 
     @Override
-    public float calcularArea(int base, int altura) {
-        return area=((float) base*(float) altura)/2;
+    public double calcularArea(float base, float altura) {
+        return area= (double) base * (double) altura /2;
     }
 }

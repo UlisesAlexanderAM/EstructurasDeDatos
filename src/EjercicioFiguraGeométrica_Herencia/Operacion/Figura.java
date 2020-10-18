@@ -3,15 +3,15 @@ package Operacion;
 import static LecturaEscritura.Imprimir.imprimir;
 
 public abstract class Figura {
-    protected int base;
-    protected int altura;
-    protected float area;
+    protected float base;
+    protected float altura;
+    protected double area;
 
     public Figura(){
         imprimir("\n"+this.getClass().getSimpleName());
     }
 
-    public Figura(int base, int altura){
+    public Figura(float base, float altura){
         this.base=base;
         this.altura=altura;
     }
@@ -21,15 +21,15 @@ public abstract class Figura {
                 " es: "+calcularArea(base,altura));
     }
 
-    public float calcularArea(int base,int altura){
+    public double calcularArea(float base,float altura){
         return area;
     }
 
-    public int getAltura() {
+    public float getAltura() {
         return altura;
     }
 
-    public int getBase() {
+    public float getBase() {
         return base;
     }
 
