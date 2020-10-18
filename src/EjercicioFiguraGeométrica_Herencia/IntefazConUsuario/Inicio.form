@@ -33,7 +33,7 @@
             <border type="none"/>
             <children/>
           </grid>
-          <grid id="d0074" binding="rectanguloJPanel" layout-manager="GridBagLayout">
+          <grid id="1e23f" binding="romboideJPanel" layout-manager="GridBagLayout">
             <constraints>
               <tabbedpane title=""/>
             </constraints>
@@ -43,7 +43,7 @@
             <border type="none"/>
             <children/>
           </grid>
-          <grid id="1e23f" binding="romboideJPanel" layout-manager="GridBagLayout">
+          <grid id="d0074" binding="rectanguloJPanel" layout-manager="GridBagLayout">
             <constraints>
               <tabbedpane title=""/>
             </constraints>

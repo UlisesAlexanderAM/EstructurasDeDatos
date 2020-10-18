@@ -35,7 +35,7 @@ public class Inicio extends JFrame {
 	private void $$$setupUI$$$() {
 		ventana = new JPanel();
 		ventana.setLayout(new GridBagLayout());
-		ventana.setName("ventana");
+		ventana.setName("");
 		figurasTabbedPane = new JTabbedPane();
 		figurasTabbedPane.setName("Figuras");
 		figurasTabbedPane.setTabLayoutPolicy(0);
@@ -48,16 +48,16 @@ public class Inicio extends JFrame {
 		ventana.add(figurasTabbedPane, gbc);
 		trianguloJPanel = new JPanel();
 		trianguloJPanel.setLayout(new GridBagLayout());
-		trianguloJPanel.setName("Triangulo");
-		figurasTabbedPane.addTab("Triangulo", trianguloJPanel);
-		rectanguloJPanel = new JPanel();
-		rectanguloJPanel.setLayout(new GridBagLayout());
-		rectanguloJPanel.setName("Rectangulo");
-		figurasTabbedPane.addTab("Rectangulo", rectanguloJPanel);
+		trianguloJPanel.setName("");
+		figurasTabbedPane.addTab("", trianguloJPanel);
 		romboideJPanel = new JPanel();
 		romboideJPanel.setLayout(new GridBagLayout());
-		romboideJPanel.setName("Romboide");
-		figurasTabbedPane.addTab("Romboide", romboideJPanel);
+		romboideJPanel.setName("");
+		figurasTabbedPane.addTab("", romboideJPanel);
+		rectanguloJPanel = new JPanel();
+		rectanguloJPanel.setLayout(new GridBagLayout());
+		rectanguloJPanel.setName("");
+		figurasTabbedPane.addTab("", rectanguloJPanel);
 	}
 
 	/**
