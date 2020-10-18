@@ -1,6 +1,7 @@
 package Operacion;
 
 public class Rectangulo extends Figura{
+
     public Rectangulo(){
     }
     public Rectangulo(float base, float altura){
@@ -9,6 +10,11 @@ public class Rectangulo extends Figura{
 
     @Override
     public double calcularArea(float base, float altura) {
-        return area=base*altura;
+        return area = base * altura;
+    }
+
+    @Override
+    public float calcularPerimetro() {
+        return perimetro = (this.base + this.altura)*2;
     }
 }

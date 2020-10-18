@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="IntefazConUsuario.GUI">
+  <grid id="27dc6" binding="ventana" layout-manager="GridBagLayout">
+    <constraints>
+      <xy x="20" y="20" width="861" height="652"/>
+    </constraints>
+    <properties>
+      <name value="ventana"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <tabbedpane id="137d9" binding="trianguloTabbedPane">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="200" height="200"/>
+          </grid>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <name value="Triangulo" noi18n="true"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <scrollpane id="1aad" binding="trianguloJScrollPane">
+            <constraints>
+              <tabbedpane title="Triangulo"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="d0bb7" class="javax.swing.JTextArea" binding="calculaElAreaYTextArea" default-binding="true">
+                <constraints/>
+                <properties>
+                  <editable value="false"/>
+                  <enabled value="true"/>
+                  <text value="Calcula el area y perimetro de un triangulo.&#10;Ingresando base, altura, y los 2 lados que no son la base."/>
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
+        </children>
+      </tabbedpane>
+      <tabbedpane id="ad7cc" binding="rectanguloTabbedPane">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="200" height="200"/>
+          </grid>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <name value="Rectangulo"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <scrollpane id="4cd64" binding="rectanguloJScrollPane">
+            <constraints>
+              <tabbedpane title="Rectangulo"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </scrollpane>
+        </children>
+      </tabbedpane>
+      <tabbedpane id="ce5ed" binding="romboideTabbedPane">
+        <constraints>
+          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="200" height="200"/>
+          </grid>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <name value="Romboide"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <scrollpane id="e8b73" binding="romboideJScrollPane">
+            <constraints>
+              <tabbedpane title="Romboide"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </scrollpane>
+        </children>
+      </tabbedpane>
+    </children>
+  </grid>
+</form>

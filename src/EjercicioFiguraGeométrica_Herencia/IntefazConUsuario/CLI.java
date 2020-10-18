@@ -16,8 +16,8 @@ public class CLI {
 
     public static void main(String[] args) {
         Rectangulo rectangulo1 = new Rectangulo(5,6);
-        Triangulo triangulo1 = new Triangulo(3,8);
-        Romboide romboide1 = new Romboide(4,15);
+        Triangulo triangulo1 = new Triangulo(3,8,5,10);
+        Romboide romboide1 = new Romboide(4,15,20);
 
         Rectangulo rectangulo2 = new Rectangulo();
         rectangulo2.setBase(leerEntero("\nIngrese la base de "+rectangulo2.getClass().getSimpleName()+": "));
@@ -43,7 +43,8 @@ public class CLI {
                 nombre+="2";
             }
             imprimir("\n\nLa figura "+nombre+" tiene\nBase: "+figura.getBase()+" \nAltura: "+figura.getAltura());
-            figura.calcularArea();
+            figura.mostrarArea();
+            figura.mostrarPerimetro();
         }
     }
 }
