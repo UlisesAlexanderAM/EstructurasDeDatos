@@ -1,4 +1,4 @@
-package HerenciaElectrodomesticos;
+package Operacion;
 
 public class Lavadora extends Electrodomestico{
     private double carga;

@@ -1,4 +1,4 @@
-package EjercicioFiguraGeométrica_Herencia;
+package Operacion;
 
 public class Rectangulo extends Figura{
     public Rectangulo(){

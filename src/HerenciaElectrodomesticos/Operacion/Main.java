@@ -1,4 +1,4 @@
-package HerenciaElectrodomesticos;
+package Operacion;
 
 import java.util.ArrayList;
 

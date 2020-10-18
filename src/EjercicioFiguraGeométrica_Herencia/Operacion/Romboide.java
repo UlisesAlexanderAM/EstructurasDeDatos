@@ -1,4 +1,4 @@
-package EjercicioFiguraGeométrica_Herencia;
+package Operacion;
 
 public class Romboide extends Figura {
     public Romboide(){

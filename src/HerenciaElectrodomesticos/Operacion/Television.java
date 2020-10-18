@@ -1,4 +1,4 @@
-package HerenciaElectrodomesticos;
+package Operacion;
 
 public class Television extends Electrodomestico{
     private int resolucion;

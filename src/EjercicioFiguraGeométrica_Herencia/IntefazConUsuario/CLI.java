@@ -1,11 +1,16 @@
-package EjercicioFiguraGeométrica_Herencia;
+package IntefazConUsuario;
+
+import Operacion.Figura;
+import Operacion.Rectangulo;
+import Operacion.Romboide;
+import Operacion.Triangulo;
 
 import java.util.ArrayList;
 
 import static LecturaEscritura.Imprimir.imprimir;
 import static LecturaEscritura.Leer.*;
 
-public class Main {
+public class CLI {
 
     public static ArrayList<Figura> figuras = new ArrayList<>();
 

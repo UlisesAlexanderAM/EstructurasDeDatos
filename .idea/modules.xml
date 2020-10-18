@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/src/EjercicioFiguraGeométrica_Herencia/EjercicioFiguraGeométrica_Herencia.iml" filepath="$PROJECT_DIR$/src/EjercicioFiguraGeométrica_Herencia/EjercicioFiguraGeométrica_Herencia.iml" />
       <module fileurl="file://$PROJECT_DIR$/Estructuras de datos.iml" filepath="$PROJECT_DIR$/Estructuras de datos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/HerenciaElectrodomesticos/HerenciaElectrodomesticos.iml" filepath="$PROJECT_DIR$/src/HerenciaElectrodomesticos/HerenciaElectrodomesticos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/LecturaEscritura/LecturaEscritura.iml" filepath="$PROJECT_DIR$/src/LecturaEscritura/LecturaEscritura.iml" />
     </modules>
   </component>
 </project>

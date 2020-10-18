@@ -1,8 +1,8 @@
-package HerenciaElectrodomesticosGUI;
+package InterfazGrafica;
 
-import HerenciaElectrodomesticos.Electrodomestico;
-import HerenciaElectrodomesticos.Lavadora;
-import HerenciaElectrodomesticos.Television;
+import Operacion.Electrodomestico;
+import Operacion.Lavadora;
+import Operacion.Television;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;

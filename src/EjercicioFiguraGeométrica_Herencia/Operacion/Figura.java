@@ -1,8 +1,8 @@
-package EjercicioFiguraGeométrica_Herencia;
+package Operacion;
 
 import static LecturaEscritura.Imprimir.imprimir;
 
-public class Figura {
+public abstract class Figura {
     protected int base;
     protected int altura;
     protected float area;
