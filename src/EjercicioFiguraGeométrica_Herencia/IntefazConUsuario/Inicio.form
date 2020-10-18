@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="IntefazConUsuario.Inicio">
+  <grid id="27dc6" binding="ventana" layout-manager="GridBagLayout">
+    <constraints>
+      <xy x="20" y="20" width="861" height="652"/>
+    </constraints>
+    <properties>
+      <name value=""/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <tabbedpane id="137d9" binding="figurasTabbedPane">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="200" height="200"/>
+          </grid>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <name value="Figuras" noi18n="true"/>
+          <tabLayoutPolicy value="0"/>
+          <tabPlacement value="2"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="c48bb" binding="trianguloJPanel" layout-manager="GridBagLayout">
+            <constraints>
+              <tabbedpane title=""/>
+            </constraints>
+            <properties>
+              <name value=""/>
+            </properties>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="d0074" binding="rectanguloJPanel" layout-manager="GridBagLayout">
+            <constraints>
+              <tabbedpane title=""/>
+            </constraints>
+            <properties>
+              <name value=""/>
+            </properties>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="1e23f" binding="romboideJPanel" layout-manager="GridBagLayout">
+            <constraints>
+              <tabbedpane title=""/>
+            </constraints>
+            <properties>
+              <name value=""/>
+            </properties>
+            <border type="none"/>
+            <children/>
+          </grid>
+        </children>
+      </tabbedpane>
+    </children>
+  </grid>
+</form>
