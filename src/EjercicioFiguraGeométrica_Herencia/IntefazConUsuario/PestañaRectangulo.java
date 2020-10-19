@@ -8,7 +8,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class PestañaRectangulo extends Inicio {
-	private JPanel recatanguloJPanel;
+	private JPanel rectanguloJPanel;
 	private JTextField instruccionesTextField;
 	private JTextField baseTextField;
 	private JTextField alturaTextField;
@@ -31,6 +31,7 @@ public class PestañaRectangulo extends Inicio {
 		alturaTextField.setText("Altura");
 		alturaTextField.setToolTipText("Ingrese la altura del rectángulo: ");
 		calcularButton.setText("Calcular");
+		pack();
 
 		baseTextField.addMouseListener(new MouseAdapter() {
 			@Override
@@ -53,9 +54,10 @@ public class PestañaRectangulo extends Inicio {
 			double area;
 			float perimetro;
 			perimetro = rectangulo.calcularPerimetro();
-			perimetroJLabel.setText("El perimetro del rectangulo es: "+perimetro);
+			perimetroJLabel.setText("El perimetro del rectangulo es: " + perimetro);
 			area = rectangulo.calcularArea();
-			areaJLabel.setText("El area del rectangulo es: "+area);
+			areaJLabel.setText("El area del rectangulo es: " + area);
+			pack();
 		});
 	}
 
@@ -74,8 +76,8 @@ public class PestañaRectangulo extends Inicio {
 	 * @noinspection ALL
 	 */
 	private void $$$setupUI$$$() {
-		recatanguloJPanel = new JPanel();
-		recatanguloJPanel.setLayout(new GridBagLayout());
+		rectanguloJPanel = new JPanel();
+		rectanguloJPanel.setLayout(new GridBagLayout());
 		descripcionJPanel = new JPanel();
 		descripcionJPanel.setLayout(new GridBagLayout());
 		GridBagConstraints gbc;
@@ -85,7 +87,7 @@ public class PestañaRectangulo extends Inicio {
 		gbc.gridwidth = 3;
 		gbc.gridheight = 5;
 		gbc.fill = GridBagConstraints.BOTH;
-		recatanguloJPanel.add(descripcionJPanel, gbc);
+		rectanguloJPanel.add(descripcionJPanel, gbc);
 		instruccionesTextField = new JTextField();
 		instruccionesTextField.setEditable(false);
 		gbc = new GridBagConstraints();
@@ -147,12 +149,13 @@ public class PestañaRectangulo extends Inicio {
 		descripcionJPanel.add(spacer2, gbc);
 		resultadosJPanel = new JPanel();
 		resultadosJPanel.setLayout(new GridBagLayout());
+		resultadosJPanel.setVisible(true);
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
 		gbc.gridy = 5;
 		gbc.gridwidth = 3;
 		gbc.fill = GridBagConstraints.BOTH;
-		recatanguloJPanel.add(resultadosJPanel, gbc);
+		rectanguloJPanel.add(resultadosJPanel, gbc);
 		perimetroJLabel = new JLabel();
 		perimetroJLabel.setText("");
 		gbc = new GridBagConstraints();
@@ -162,16 +165,10 @@ public class PestañaRectangulo extends Inicio {
 		resultadosJPanel.add(perimetroJLabel, gbc);
 		final JPanel spacer3 = new JPanel();
 		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
-		gbc.gridy = 0;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		resultadosJPanel.add(spacer3, gbc);
-		final JPanel spacer4 = new JPanel();
-		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
 		gbc.gridy = 1;
 		gbc.fill = GridBagConstraints.VERTICAL;
-		resultadosJPanel.add(spacer4, gbc);
+		resultadosJPanel.add(spacer3, gbc);
 		areaJLabel = new JLabel();
 		areaJLabel.setText("");
 		gbc = new GridBagConstraints();
@@ -185,6 +182,7 @@ public class PestañaRectangulo extends Inicio {
 	 * @noinspection ALL
 	 */
 	public JComponent $$$getRootComponent$$$() {
-		return recatanguloJPanel;
+		return rectanguloJPanel;
 	}
+
 }
