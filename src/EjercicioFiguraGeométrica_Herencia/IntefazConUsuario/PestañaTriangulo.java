@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class PestañaTriangulo extends Inicio {
+public class PestañaTriangulo extends JPanel {
 
 	private JPanel trianguloJPanel;
 	private JPanel descripcionJPanel;
@@ -40,7 +40,6 @@ public class PestañaTriangulo extends Inicio {
 		ladoAJLabel.setLabelFor(ladoATextField);
 		ladoBJLabel.setText("Lado B");
 		ladoBJLabel.setLabelFor(ladoBTextField);
-		pack();
 
 		baseTextField.addMouseListener(new MouseAdapter() {
 			@Override
@@ -80,7 +79,6 @@ public class PestañaTriangulo extends Inicio {
 			perimetroJLabel.setText("El perimetro del triángulo es: " + perimetro);
 			area = triangulo.calcularArea();
 			areaJLabel.setText("El area del triángulo es: " + area);
-			pack();
 		});
 	}
 

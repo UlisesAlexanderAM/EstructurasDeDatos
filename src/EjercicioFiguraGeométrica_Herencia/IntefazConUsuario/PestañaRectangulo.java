@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class PestañaRectangulo extends Inicio {
+public class PestañaRectangulo extends JPanel {
 	private JPanel rectanguloJPanel;
 	private JTextField instruccionesTextField;
 	private JTextField baseTextField;
@@ -31,7 +31,6 @@ public class PestañaRectangulo extends Inicio {
 		alturaTextField.setText("Altura");
 		alturaTextField.setToolTipText("Ingrese la altura del rectángulo: ");
 		calcularButton.setText("Calcular");
-		pack();
 
 		baseTextField.addMouseListener(new MouseAdapter() {
 			@Override
@@ -57,7 +56,6 @@ public class PestañaRectangulo extends Inicio {
 			perimetroJLabel.setText("El perimetro del rectangulo es: " + perimetro);
 			area = rectangulo.calcularArea();
 			areaJLabel.setText("El area del rectangulo es: " + area);
-			pack();
 		});
 	}
 

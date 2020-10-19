@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class PestañaRomboide extends Inicio {
+public class PestañaRomboide extends JPanel {
 	private JPanel descripcionJPanel;
 	private JPanel resultadosJPanel;
 	private JTextField descripcionTextField;
@@ -35,7 +35,6 @@ public class PestañaRomboide extends Inicio {
 		calcularButton.setText("Calcular");
 		ladoAJLabel.setText("Lado A");
 		ladoAJLabel.setLabelFor(ladoATextField);
-		pack();
 
 		baseTextField.addMouseListener(new MouseAdapter() {
 			@Override
@@ -68,7 +67,6 @@ public class PestañaRomboide extends Inicio {
 			perimetroJLabel.setText("El perimetro del romboide es: " + perimetro);
 			area = romboide.calcularArea();
 			areaJLabel.setText("El area del romboide es: " + area);
-			pack();
 		});
 	}
 
