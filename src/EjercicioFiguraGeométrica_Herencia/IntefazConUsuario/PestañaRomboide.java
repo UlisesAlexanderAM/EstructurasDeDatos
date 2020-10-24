@@ -47,7 +47,7 @@ public class PestañaRomboide {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (alturaTextField.getText().equals("Altura"))
-					alturaTextField.setText("");
+					baseTextField.setText("");
 			}
 		});
 		ladoATextField.addMouseListener(new MouseAdapter() {
