@@ -7,31 +7,131 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class PestañaRectangulo {
-	private JPanel rectanguloJPanel;
-	private JTextField instruccionesTextField;
-	private JTextField baseTextField;
-	private JTextField alturaTextField;
-	private JLabel baseJLabel;
-	private JLabel alturaJLabel;
-	private JButton calcularButton;
-	private JPanel descripcionJPanel;
-	private JPanel resultadosJPanel;
-	private JLabel perimetroJLabel;
-	private JLabel areaJLabel;
+public class PestañaRectangulo extends Inicio{
+	private final JPanel rectanguloJPanel;
+	private final JTextField baseTextField;
+	private final JTextField alturaTextField;
+	private final JLabel perimetroJLabel;
+	private final JLabel areaJLabel;
 
-	public PestañaRectangulo() {
-		$$$setupUI$$$();
-		instruccionesTextField.setText("Aquí podras calcular el area y perimetro de un rectangulo.\nProporcionando la base y la altura.\nPara mostrar los resultados presionar el boton \"Calcular\"");
-		baseJLabel.setText("Base:");
-		baseJLabel.setLabelFor(baseTextField);
-		baseTextField.setText("Base");
-		baseTextField.setToolTipText("Ingrese la base del rectángulo: ");
+	public JPanel getRectanguloJPanel() {
+		return rectanguloJPanel;
+	}
+
+	public PestañaRectangulo(){
+		rectanguloJPanel = new JPanel();
+		rectanguloJPanel.setLayout(new GridBagLayout());
+		JPanel descripcionJPanel = new JPanel();
+		descripcionJPanel.setLayout(new GridBagLayout());
+		descripcionJPanel.setPreferredSize(new Dimension(250, 113));
+		GridBagConstraints gbc;
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.fill = GridBagConstraints.BOTH;
+		rectanguloJPanel.add(descripcionJPanel, gbc);
+		JLabel baseJLabel = new JLabel();
+		baseJLabel.setText("Base: ");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 1;
+		gbc.gridy = 1;
+		gbc.anchor = GridBagConstraints.WEST;
+		descripcionJPanel.add(baseJLabel, gbc);
+		JLabel alturaJLabel = new JLabel();
 		alturaJLabel.setText("Altura: ");
-		alturaJLabel.setLabelFor(alturaTextField);
-		alturaTextField.setText("Altura");
-		alturaTextField.setToolTipText("Ingrese la altura del rectángulo: ");
-		calcularButton.setText("Calcular");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 3;
+		gbc.gridy = 1;
+		gbc.anchor = GridBagConstraints.EAST;
+		descripcionJPanel.add(alturaJLabel, gbc);
+		final JPanel spacer1 = new JPanel();
+		gbc = new GridBagConstraints();
+		gbc.gridx = 2;
+		gbc.gridy = 1;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		descripcionJPanel.add(spacer1, gbc);
+		baseTextField = new JTextField();
+		baseTextField.setToolTipText("Ingrese la base del rectángulo");
+		baseJLabel.setLabelFor(baseTextField);
+		gbc = new GridBagConstraints();
+		gbc.gridx = 1;
+		gbc.gridy = 2;
+		gbc.anchor = GridBagConstraints.WEST;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		descripcionJPanel.add(baseTextField, gbc);
+		alturaTextField = new JTextField();
+		gbc = new GridBagConstraints();
+		gbc.gridx = 3;
+		gbc.gridy = 2;
+		gbc.anchor = GridBagConstraints.EAST;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		descripcionJPanel.add(alturaTextField, gbc);
+		JButton calcularButton = new JButton();
+		calcularButton.setText("Calcular Rectángulo");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 1;
+		gbc.gridy = 4;
+		gbc.gridwidth = GridBagConstraints.RELATIVE;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		descripcionJPanel.add(calcularButton, gbc);
+		final JPanel spacer2 = new JPanel();
+		gbc = new GridBagConstraints();
+		gbc.gridx = 1;
+		gbc.gridy = 3;
+		gbc.gridwidth = GridBagConstraints.RELATIVE;
+		gbc.fill = GridBagConstraints.VERTICAL;
+		descripcionJPanel.add(spacer2, gbc);
+		JTextPane instruccionesTextPane = new JTextPane();
+		instruccionesTextPane.setText("Aquí podras calcular el area y perimetro de un triángulo.\nProporcionando la base y la altura.\nPara mostrar los resultados presionar el boton \"Calcular\"");
+		instruccionesTextPane.setEditable(false);
+		gbc = new GridBagConstraints();
+		gbc.gridx = 1;
+		gbc.gridy = 0;
+		gbc.gridwidth = GridBagConstraints.RELATIVE;
+		gbc.fill = GridBagConstraints.BOTH;
+		descripcionJPanel.add(instruccionesTextPane, gbc);
+		final JPanel spacer3 = new JPanel();
+		gbc = new GridBagConstraints();
+		gbc.gridx = 4;
+		gbc.gridy = 0;
+		gbc.gridheight = GridBagConstraints.ABOVE_BASELINE;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		descripcionJPanel.add(spacer3, gbc);
+		final JPanel spacer4 = new JPanel();
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.gridheight = GridBagConstraints.ABOVE_BASELINE;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		descripcionJPanel.add(spacer4, gbc);
+		JPanel resultadosJPanel = new JPanel();
+		resultadosJPanel.setLayout(new GridBagLayout());
+		resultadosJPanel.setVisible(true);
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		gbc.fill = GridBagConstraints.BOTH;
+		rectanguloJPanel.add(resultadosJPanel, gbc);
+		perimetroJLabel = new JLabel();
+		perimetroJLabel.setText("");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.anchor = GridBagConstraints.WEST;
+		resultadosJPanel.add(perimetroJLabel, gbc);
+		final JPanel spacer5 = new JPanel();
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		gbc.fill = GridBagConstraints.VERTICAL;
+		resultadosJPanel.add(spacer5, gbc);
+		areaJLabel = new JLabel();
+		areaJLabel.setText("");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 2;
+		gbc.anchor = GridBagConstraints.WEST;
+		resultadosJPanel.add(areaJLabel, gbc);
 
 		baseTextField.addMouseListener(new MouseAdapter() {
 			@Override
@@ -44,7 +144,7 @@ public class PestañaRectangulo {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (alturaTextField.getText().equals("Altura"))
-					baseTextField.setText("");
+					alturaTextField.setText("");
 			}
 		});
 		calcularButton.addActionListener(actionEvent -> {
@@ -54,134 +154,11 @@ public class PestañaRectangulo {
 			double area;
 			float perimetro;
 			perimetro = rectangulo.calcularPerimetro();
-			perimetroJLabel.setText("El perimetro del rectangulo es: " + perimetro);
+			perimetroJLabel.setText("El perímetro del rectángulo es: " + perimetro);
 			area = rectangulo.calcularArea();
-			areaJLabel.setText("El area del rectangulo es: " + area);
+			areaJLabel.setText("El area del rectángulo es: " + area);
+			ventana.pack();
 		});
-	}
-
-	/*{
-// GUI initializer generated by IntelliJ IDEA GUI Designer
-// >>> IMPORTANT!! <<<
-// DO NOT EDIT OR ADD ANY CODE HERE!
-		$$$setupUI$$$();
-	}*/
-
-	/**
-	 * Method generated by IntelliJ IDEA GUI Designer
-	 * >>> IMPORTANT!! <<<
-	 * DO NOT edit this method OR call it in your code!
-	 *
-	 * @noinspection ALL
-	 */
-	private void $$$setupUI$$$() {
-		rectanguloJPanel = new JPanel();
-		rectanguloJPanel.setLayout(new GridBagLayout());
-		descripcionJPanel = new JPanel();
-		descripcionJPanel.setLayout(new GridBagLayout());
-		GridBagConstraints gbc;
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		gbc.gridwidth = 3;
-		gbc.gridheight = 5;
-		gbc.fill = GridBagConstraints.BOTH;
-		rectanguloJPanel.add(descripcionJPanel, gbc);
-		instruccionesTextField = new JTextField();
-		instruccionesTextField.setEditable(false);
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		gbc.gridwidth = 3;
-		gbc.anchor = GridBagConstraints.WEST;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		descripcionJPanel.add(instruccionesTextField, gbc);
-		baseJLabel = new JLabel();
-		baseJLabel.setText("");
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 1;
-		gbc.anchor = GridBagConstraints.WEST;
-		descripcionJPanel.add(baseJLabel, gbc);
-		alturaJLabel = new JLabel();
-		alturaJLabel.setText("");
-		gbc = new GridBagConstraints();
-		gbc.gridx = 2;
-		gbc.gridy = 1;
-		gbc.anchor = GridBagConstraints.WEST;
-		descripcionJPanel.add(alturaJLabel, gbc);
-		final JPanel spacer1 = new JPanel();
-		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
-		gbc.gridy = 1;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		descripcionJPanel.add(spacer1, gbc);
-		baseTextField = new JTextField();
-		baseTextField.setToolTipText("");
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 2;
-		gbc.anchor = GridBagConstraints.WEST;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		descripcionJPanel.add(baseTextField, gbc);
-		alturaTextField = new JTextField();
-		gbc = new GridBagConstraints();
-		gbc.gridx = 2;
-		gbc.gridy = 2;
-		gbc.anchor = GridBagConstraints.WEST;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		descripcionJPanel.add(alturaTextField, gbc);
-		calcularButton = new JButton();
-		calcularButton.setText("");
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 4;
-		gbc.gridwidth = 3;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		descripcionJPanel.add(calcularButton, gbc);
-		final JPanel spacer2 = new JPanel();
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 3;
-		gbc.gridwidth = 3;
-		gbc.fill = GridBagConstraints.VERTICAL;
-		descripcionJPanel.add(spacer2, gbc);
-		resultadosJPanel = new JPanel();
-		resultadosJPanel.setLayout(new GridBagLayout());
-		resultadosJPanel.setVisible(true);
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 5;
-		gbc.gridwidth = 3;
-		gbc.fill = GridBagConstraints.BOTH;
-		rectanguloJPanel.add(resultadosJPanel, gbc);
-		perimetroJLabel = new JLabel();
-		perimetroJLabel.setText("");
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		gbc.anchor = GridBagConstraints.WEST;
-		resultadosJPanel.add(perimetroJLabel, gbc);
-		final JPanel spacer3 = new JPanel();
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 1;
-		gbc.fill = GridBagConstraints.VERTICAL;
-		resultadosJPanel.add(spacer3, gbc);
-		areaJLabel = new JLabel();
-		areaJLabel.setText("");
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 2;
-		gbc.anchor = GridBagConstraints.WEST;
-		resultadosJPanel.add(areaJLabel, gbc);
-	}
-
-	/**
-	 * @noinspection ALL
-	 */
-	public JComponent $$$getRootComponent$$$() {
-		return rectanguloJPanel;
 	}
 
 }

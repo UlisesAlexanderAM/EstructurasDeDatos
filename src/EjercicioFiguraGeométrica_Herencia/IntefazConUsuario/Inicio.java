@@ -3,23 +3,31 @@ package IntefazConUsuario;
 import javax.swing.*;
 import java.awt.*;
 
-public class Inicio {
+public class Inicio extends JFrame{
+	protected static final JFrame ventana = new JFrame();
 
 	public static void main(String[] args) {
-		JFrame ventana = new JFrame();
+		JPanel ventanaContenedor = new JPanel();
+		JTabbedPane pestanias = new JTabbedPane(SwingConstants.LEFT,JTabbedPane.WRAP_TAB_LAYOUT);
+		PestañaRectangulo pestañaRectangulo = new PestañaRectangulo();
+		PestañaTriangulo pestañaTriangulo = new PestañaTriangulo();
+		JPanel rectanguloJPanel = pestañaRectangulo.getRectanguloJPanel();
+
 		ventana.setTitle("Figuras Geometricas");
-		JPanel jPanel = new JPanel();
-		JComponent pestañaRectangulo = new PestañaRectangulo().$$$getRootComponent$$$();
-		ventana.setContentPane(jPanel);
+		ventana.setContentPane(ventanaContenedor);
 		ventana.setLayout(new GridBagLayout());
+		ventana.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		ventana.setVisible(true);
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.gridx=0;
 		gbc.gridy=0;
 		gbc.fill = GridBagConstraints.BOTH;
-		jPanel.add(pestañaRectangulo,gbc);
-		ventana.setVisible(true);
-//		ventana.pack();
-
+		pestanias.addTab("Rectangulo",rectanguloJPanel);
+		ventanaContenedor.add(pestanias,gbc);
+		ventana.pack();
+		gbc.gridx=1;
+		gbc.gridy=0;
+		gbc.fill = GridBagConstraints.BOTH;
+		ventana.pack();
 	}
-
 }
