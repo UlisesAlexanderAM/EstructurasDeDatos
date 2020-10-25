@@ -7,23 +7,31 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class PestañaRectangulo extends Inicio{
+public class PestaniaRectangulo extends Inicio{
 	private final JPanel rectanguloJPanel;
 	private final JTextField baseTextField;
 	private final JTextField alturaTextField;
 	private final JLabel perimetroJLabel;
 	private final JLabel areaJLabel;
+	private final static String instrucionesText = "Aquí podras calcular el area y perímetro de un rectángulo.\nProporcionando la base y la altura.\nPara mostrar los resultados presionar el boton \"Calcular\"";
 
 	public JPanel getRectanguloJPanel() {
 		return rectanguloJPanel;
 	}
 
-	public PestañaRectangulo(){
+	public void reiniciar(){
+		baseTextField.setText("");
+		alturaTextField.setText("");
+		perimetroJLabel.setText("");
+		areaJLabel.setText("");
+		ventana.pack();
+	}
+
+	public PestaniaRectangulo(){
 		rectanguloJPanel = new JPanel();
 		rectanguloJPanel.setLayout(new GridBagLayout());
 		JPanel descripcionJPanel = new JPanel();
 		descripcionJPanel.setLayout(new GridBagLayout());
-		descripcionJPanel.setPreferredSize(new Dimension(250, 113));
 		GridBagConstraints gbc;
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
@@ -78,30 +86,30 @@ public class PestañaRectangulo extends Inicio{
 		gbc = new GridBagConstraints();
 		gbc.gridx = 1;
 		gbc.gridy = 3;
-		gbc.gridwidth = GridBagConstraints.RELATIVE;
+		gbc.gridwidth = 5;
 		gbc.fill = GridBagConstraints.VERTICAL;
 		descripcionJPanel.add(spacer2, gbc);
-		JTextPane instruccionesTextPane = new JTextPane();
-		instruccionesTextPane.setText("Aquí podras calcular el area y perimetro de un triángulo.\nProporcionando la base y la altura.\nPara mostrar los resultados presionar el boton \"Calcular\"");
-		instruccionesTextPane.setEditable(false);
+		JTextArea instruccionesTextArea = new JTextArea();
+		instruccionesTextArea.setText(instrucionesText);
+		instruccionesTextArea.setEditable(false);
 		gbc = new GridBagConstraints();
 		gbc.gridx = 1;
 		gbc.gridy = 0;
 		gbc.gridwidth = GridBagConstraints.RELATIVE;
 		gbc.fill = GridBagConstraints.BOTH;
-		descripcionJPanel.add(instruccionesTextPane, gbc);
+		descripcionJPanel.add(instruccionesTextArea, gbc);
 		final JPanel spacer3 = new JPanel();
 		gbc = new GridBagConstraints();
 		gbc.gridx = 4;
 		gbc.gridy = 0;
-		gbc.gridheight = GridBagConstraints.ABOVE_BASELINE;
+		gbc.gridheight = GridBagConstraints.RELATIVE;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		descripcionJPanel.add(spacer3, gbc);
 		final JPanel spacer4 = new JPanel();
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
 		gbc.gridy = 0;
-		gbc.gridheight = GridBagConstraints.ABOVE_BASELINE;
+		gbc.gridheight = 5;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		descripcionJPanel.add(spacer4, gbc);
 		JPanel resultadosJPanel = new JPanel();

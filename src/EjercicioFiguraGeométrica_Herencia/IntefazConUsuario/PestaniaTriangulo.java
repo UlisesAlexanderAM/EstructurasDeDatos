@@ -7,39 +7,176 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class PestañaTriangulo {
+public class PestaniaTriangulo extends Inicio {
 
-	private JPanel trianguloJPanel;
-	private JPanel descripcionJPanel;
-	private JPanel resultadosJPanel;
-	private JTextField descripcionTextField;
-	private JTextField ladoATextField;
-	private JTextField ladoBTextField;
-	private JTextField baseTextField;
-	private JTextField alturaTextField;
-	private JButton calcularButton;
-	private JLabel ladoAJLabel;
-	private JLabel ladoBJLabel;
-	private JLabel baseJLabel;
-	private JLabel alturaJLabel;
-	private JLabel perimetroJLabel;
-	private JLabel areaJLabel;
+	private final JTextField ladoATextField;
+	private final JTextField ladoBTextField;
+	private final JTextField baseTextField;
+	private final JTextField alturaTextField;
+	private final JLabel perimetroJLabel;
+	private final JLabel areaJLabel;
+	private final JPanel trianguloJPanel;
 
-	public PestañaTriangulo() {
-		descripcionTextField.setText("Aquí podras calcular el area y perimetro de un triángulo.\nProporcionando la base y la altura.\nPara mostrar los resultados presionar el boton \"Calcular\"");
-		baseJLabel.setText("Base:");
-		baseJLabel.setLabelFor(baseTextField);
-		baseTextField.setText("Base");
-		baseTextField.setToolTipText("Ingrese la base del triángulo: ");
+	public JPanel getTrianguloJPanel() {
+		return trianguloJPanel;
+	}
+
+	public void reiniciar(){
+		ladoATextField.setText("");
+		ladoBTextField.setText("");
+		baseTextField.setText("");
+		alturaTextField.setText("");
+		perimetroJLabel.setText("");
+		areaJLabel.setText("");
+		ventana.pack();
+	}
+
+	public PestaniaTriangulo() {
+		trianguloJPanel = new JPanel();
+		trianguloJPanel.setLayout(new GridBagLayout());
+		JPanel descripcionJPanel = new JPanel();
+		descripcionJPanel.setLayout(new GridBagLayout());
+		GridBagConstraints gbc;
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.fill = GridBagConstraints.BOTH;
+		trianguloJPanel.add(descripcionJPanel, gbc);
+		JTextArea descripcionTextArea = new JTextArea();
+		descripcionTextArea.setEditable(false);
+		descripcionTextArea.setText("Aquí podras calcular el area y perimetro de un triángulo.\nProporcionando la base y la altura.\nPara mostrar los resultados presionar el boton \"Calcular\"");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.gridwidth = 3;
+		gbc.anchor = GridBagConstraints.WEST;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		descripcionJPanel.add(descripcionTextArea, gbc);
+		JLabel ladoAJLabel = new JLabel();
+		ladoAJLabel.setText("Lado A: ");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 2;
+		gbc.anchor = GridBagConstraints.WEST;
+		descripcionJPanel.add(ladoAJLabel, gbc);
+		JLabel ladoBJLabel = new JLabel();
+		ladoBJLabel.setText("Lado B: ");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 2;
+		gbc.gridy = 2;
+		gbc.anchor = GridBagConstraints.WEST;
+		descripcionJPanel.add(ladoBJLabel, gbc);
+		final JPanel spacer1 = new JPanel();
+		gbc = new GridBagConstraints();
+		gbc.gridx = 1;
+		gbc.gridy = 2;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		descripcionJPanel.add(spacer1, gbc);
+		final JPanel spacer2 = new JPanel();
+		gbc = new GridBagConstraints();
+		gbc.gridx = 1;
+		gbc.gridy = 1;
+		gbc.fill = GridBagConstraints.VERTICAL;
+		descripcionJPanel.add(spacer2, gbc);
+		JLabel baseJLabel = new JLabel();
+		baseJLabel.setText("Base: ");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 5;
+		gbc.anchor = GridBagConstraints.WEST;
+		descripcionJPanel.add(baseJLabel, gbc);
+		JLabel alturaJLabel = new JLabel();
 		alturaJLabel.setText("Altura: ");
-		alturaJLabel.setLabelFor(alturaTextField);
-		alturaTextField.setText("Altura");
-		alturaTextField.setToolTipText("Ingrese la altura del triángulo: ");
-		calcularButton.setText("Calcular");
-		ladoAJLabel.setText("Lado A");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 2;
+		gbc.gridy = 5;
+		gbc.anchor = GridBagConstraints.WEST;
+		descripcionJPanel.add(alturaJLabel, gbc);
+		ladoATextField = new JTextField();
 		ladoAJLabel.setLabelFor(ladoATextField);
-		ladoBJLabel.setText("Lado B");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 3;
+		gbc.anchor = GridBagConstraints.WEST;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		descripcionJPanel.add(ladoATextField, gbc);
+		ladoBTextField = new JTextField();
 		ladoBJLabel.setLabelFor(ladoBTextField);
+		gbc = new GridBagConstraints();
+		gbc.gridx = 2;
+		gbc.gridy = 3;
+		gbc.anchor = GridBagConstraints.WEST;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		descripcionJPanel.add(ladoBTextField, gbc);
+		baseTextField = new JTextField();
+		baseJLabel.setLabelFor(baseTextField);
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 6;
+		gbc.anchor = GridBagConstraints.WEST;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		descripcionJPanel.add(baseTextField, gbc);
+		alturaTextField = new JTextField();
+		alturaJLabel.setLabelFor(alturaTextField);
+		gbc = new GridBagConstraints();
+		gbc.gridx = 2;
+		gbc.gridy = 6;
+		gbc.anchor = GridBagConstraints.WEST;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		descripcionJPanel.add(alturaTextField, gbc);
+		final JPanel spacer3 = new JPanel();
+		gbc = new GridBagConstraints();
+		gbc.gridx = 1;
+		gbc.gridy = 4;
+		gbc.fill = GridBagConstraints.VERTICAL;
+		descripcionJPanel.add(spacer3, gbc);
+		JButton calcularButton = new JButton();
+		calcularButton.setText("Calcular Triangulo");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 8;
+		gbc.gridwidth = 3;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		descripcionJPanel.add(calcularButton, gbc);
+		final JPanel spacer4 = new JPanel();
+		gbc = new GridBagConstraints();
+		gbc.gridx = 1;
+		gbc.gridy = 7;
+		gbc.fill = GridBagConstraints.VERTICAL;
+		descripcionJPanel.add(spacer4, gbc);
+		final JPanel spacer5 = new JPanel();
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		gbc.fill = GridBagConstraints.VERTICAL;
+		trianguloJPanel.add(spacer5, gbc);
+		JPanel resultadosJPanel = new JPanel();
+		resultadosJPanel.setLayout(new GridBagLayout());
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 2;
+		gbc.fill = GridBagConstraints.BOTH;
+		trianguloJPanel.add(resultadosJPanel, gbc);
+		perimetroJLabel = new JLabel();
+		perimetroJLabel.setText("");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.anchor = GridBagConstraints.WEST;
+		resultadosJPanel.add(perimetroJLabel, gbc);
+		final JPanel spacer6 = new JPanel();
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		gbc.fill = GridBagConstraints.VERTICAL;
+		resultadosJPanel.add(spacer6, gbc);
+		areaJLabel = new JLabel();
+		areaJLabel.setText("");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 2;
+		gbc.anchor = GridBagConstraints.WEST;
+		resultadosJPanel.add(areaJLabel, gbc);
 
 		baseTextField.addMouseListener(new MouseAdapter() {
 			@Override
@@ -76,174 +213,10 @@ public class PestañaTriangulo {
 			double area;
 			float perimetro;
 			perimetro = triangulo.calcularPerimetro();
-			perimetroJLabel.setText("El perimetro del triángulo es: " + perimetro);
+			perimetroJLabel.setText("El perímetro del triángulo es: " + perimetro);
 			area = triangulo.calcularArea();
 			areaJLabel.setText("El area del triángulo es: " + area);
+			ventana.pack();
 		});
 	}
-
-	{
-// GUI initializer generated by IntelliJ IDEA GUI Designer
-// >>> IMPORTANT!! <<<
-// DO NOT EDIT OR ADD ANY CODE HERE!
-		$$$setupUI$$$();
-	}
-
-	/**
-	 * Method generated by IntelliJ IDEA GUI Designer
-	 * >>> IMPORTANT!! <<<
-	 * DO NOT edit this method OR call it in your code!
-	 *
-	 * @noinspection ALL
-	 */
-	private void $$$setupUI$$$() {
-		trianguloJPanel = new JPanel();
-		trianguloJPanel.setLayout(new GridBagLayout());
-		descripcionJPanel = new JPanel();
-		descripcionJPanel.setLayout(new GridBagLayout());
-		GridBagConstraints gbc;
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		gbc.fill = GridBagConstraints.BOTH;
-		trianguloJPanel.add(descripcionJPanel, gbc);
-		descripcionTextField = new JTextField();
-		descripcionTextField.setEditable(false);
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		gbc.gridwidth = 3;
-		gbc.anchor = GridBagConstraints.WEST;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		descripcionJPanel.add(descripcionTextField, gbc);
-		ladoAJLabel = new JLabel();
-		ladoAJLabel.setText("");
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 2;
-		gbc.anchor = GridBagConstraints.WEST;
-		descripcionJPanel.add(ladoAJLabel, gbc);
-		ladoBJLabel = new JLabel();
-		ladoBJLabel.setText("");
-		gbc = new GridBagConstraints();
-		gbc.gridx = 2;
-		gbc.gridy = 2;
-		gbc.anchor = GridBagConstraints.WEST;
-		descripcionJPanel.add(ladoBJLabel, gbc);
-		final JPanel spacer1 = new JPanel();
-		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
-		gbc.gridy = 2;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		descripcionJPanel.add(spacer1, gbc);
-		final JPanel spacer2 = new JPanel();
-		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
-		gbc.gridy = 1;
-		gbc.fill = GridBagConstraints.VERTICAL;
-		descripcionJPanel.add(spacer2, gbc);
-		baseJLabel = new JLabel();
-		baseJLabel.setText("");
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 5;
-		gbc.anchor = GridBagConstraints.WEST;
-		descripcionJPanel.add(baseJLabel, gbc);
-		alturaJLabel = new JLabel();
-		alturaJLabel.setText("");
-		gbc = new GridBagConstraints();
-		gbc.gridx = 2;
-		gbc.gridy = 5;
-		gbc.anchor = GridBagConstraints.WEST;
-		descripcionJPanel.add(alturaJLabel, gbc);
-		ladoATextField = new JTextField();
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 3;
-		gbc.anchor = GridBagConstraints.WEST;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		descripcionJPanel.add(ladoATextField, gbc);
-		ladoBTextField = new JTextField();
-		gbc = new GridBagConstraints();
-		gbc.gridx = 2;
-		gbc.gridy = 3;
-		gbc.anchor = GridBagConstraints.WEST;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		descripcionJPanel.add(ladoBTextField, gbc);
-		baseTextField = new JTextField();
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 6;
-		gbc.anchor = GridBagConstraints.WEST;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		descripcionJPanel.add(baseTextField, gbc);
-		alturaTextField = new JTextField();
-		gbc = new GridBagConstraints();
-		gbc.gridx = 2;
-		gbc.gridy = 6;
-		gbc.anchor = GridBagConstraints.WEST;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		descripcionJPanel.add(alturaTextField, gbc);
-		final JPanel spacer3 = new JPanel();
-		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
-		gbc.gridy = 4;
-		gbc.fill = GridBagConstraints.VERTICAL;
-		descripcionJPanel.add(spacer3, gbc);
-		calcularButton = new JButton();
-		calcularButton.setText("");
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 8;
-		gbc.gridwidth = 3;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		descripcionJPanel.add(calcularButton, gbc);
-		final JPanel spacer4 = new JPanel();
-		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
-		gbc.gridy = 7;
-		gbc.fill = GridBagConstraints.VERTICAL;
-		descripcionJPanel.add(spacer4, gbc);
-		final JPanel spacer5 = new JPanel();
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 1;
-		gbc.fill = GridBagConstraints.VERTICAL;
-		trianguloJPanel.add(spacer5, gbc);
-		resultadosJPanel = new JPanel();
-		resultadosJPanel.setLayout(new GridBagLayout());
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 2;
-		gbc.fill = GridBagConstraints.BOTH;
-		trianguloJPanel.add(resultadosJPanel, gbc);
-		perimetroJLabel = new JLabel();
-		perimetroJLabel.setText("");
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		gbc.anchor = GridBagConstraints.WEST;
-		resultadosJPanel.add(perimetroJLabel, gbc);
-		final JPanel spacer6 = new JPanel();
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 1;
-		gbc.fill = GridBagConstraints.VERTICAL;
-		resultadosJPanel.add(spacer6, gbc);
-		areaJLabel = new JLabel();
-		areaJLabel.setText("");
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 2;
-		gbc.anchor = GridBagConstraints.WEST;
-		resultadosJPanel.add(areaJLabel, gbc);
-	}
-
-	/**
-	 * @noinspection ALL
-	 */
-	public JComponent $$$getRootComponent$$$() {
-		return trianguloJPanel;
-	}
-
 }

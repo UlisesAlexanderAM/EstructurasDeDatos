@@ -8,10 +8,13 @@ public class Inicio extends JFrame{
 
 	public static void main(String[] args) {
 		JPanel ventanaContenedor = new JPanel();
-		JTabbedPane pestanias = new JTabbedPane(SwingConstants.LEFT,JTabbedPane.WRAP_TAB_LAYOUT);
-		PestañaRectangulo pestañaRectangulo = new PestañaRectangulo();
-		PestañaTriangulo pestañaTriangulo = new PestañaTriangulo();
-		JPanel rectanguloJPanel = pestañaRectangulo.getRectanguloJPanel();
+		JTabbedPane pestanias = new JTabbedPane(SwingConstants.TOP,JTabbedPane.WRAP_TAB_LAYOUT);
+		PestaniaRectangulo pestaniaRectangulo = new PestaniaRectangulo();
+		PestaniaTriangulo pestaniaTriangulo = new PestaniaTriangulo();
+		PestaniaRomboide pestaniaRomboide = new PestaniaRomboide();
+		JPanel rectanguloJPanel = pestaniaRectangulo.getRectanguloJPanel();
+		JPanel trianguloJPanel = pestaniaTriangulo.getTrianguloJPanel();
+		JPanel romboideJPanel = pestaniaRomboide.getRomboideJPanel();
 
 		ventana.setTitle("Figuras Geometricas");
 		ventana.setContentPane(ventanaContenedor);
@@ -23,11 +26,18 @@ public class Inicio extends JFrame{
 		gbc.gridy=0;
 		gbc.fill = GridBagConstraints.BOTH;
 		pestanias.addTab("Rectangulo",rectanguloJPanel);
+		pestanias.addTab("Triangulo",trianguloJPanel);
+		pestanias.addTab("Romboide",romboideJPanel);
 		ventanaContenedor.add(pestanias,gbc);
 		ventana.pack();
-		gbc.gridx=1;
-		gbc.gridy=0;
-		gbc.fill = GridBagConstraints.BOTH;
-		ventana.pack();
+
+		pestanias.addChangeListener(changeEvent -> {
+			if (pestanias.getSelectedComponent().equals(rectanguloJPanel))
+				pestaniaRectangulo.reiniciar();
+			else if (pestanias.getSelectedComponent().equals(trianguloJPanel))
+				pestaniaTriangulo.reiniciar();
+			else
+				pestaniaRomboide.reiniciar();
+		});
 	}
 }

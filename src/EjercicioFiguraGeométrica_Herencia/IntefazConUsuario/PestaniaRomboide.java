@@ -7,34 +7,164 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class PestañaRomboide {
-	private JPanel descripcionJPanel;
-	private JPanel resultadosJPanel;
-	private JTextField descripcionTextField;
-	private JTextField ladoATextField;
-	private JTextField baseTextField;
-	private JTextField alturaTextField;
-	private JLabel ladoAJLabel;
-	private JLabel baseJLabel;
-	private JLabel alturaJLabel;
-	private JButton calcularButton;
-	private JLabel perimetroJLabel;
-	private JLabel areaJLabel;
-	private JPanel romboideJPanel;
+public class PestaniaRomboide extends Inicio{
+	private final JTextField ladoATextField;
+	private final JTextField baseTextField;
+	private final JTextField alturaTextField;
+	private final JLabel perimetroJLabel;
+	private final JLabel areaJLabel;
+	private final JPanel romboideJPanel;
+	private final static String instruccionesText = "Aquí podras calcular el area y perimetro de un romboide." +
+			"\nProporcionando la base y la altura.\nPara mostrar los resultados presionar el boton \"Calcular\"";
 
-	public PestañaRomboide() {
-		descripcionTextField.setText("Aquí podras calcular el area y perimetro de un romboide.\nProporcionando la base y la altura.\nPara mostrar los resultados presionar el boton \"Calcular\"");
-		baseJLabel.setText("Base:");
-		baseJLabel.setLabelFor(baseTextField);
-		baseTextField.setText("Base");
-		baseTextField.setToolTipText("Ingrese la base del romboide: ");
-		alturaJLabel.setText("Altura: ");
-		alturaJLabel.setLabelFor(alturaTextField);
-		alturaTextField.setText("Altura");
-		alturaTextField.setToolTipText("Ingrese la altura del romboide: ");
-		calcularButton.setText("Calcular");
-		ladoAJLabel.setText("Lado A");
+	public JPanel getRomboideJPanel() {
+		return romboideJPanel;
+	}
+
+	public void reiniciar(){
+		ladoATextField.setText("");
+		baseTextField.setText("");
+		alturaTextField.setText("");
+		perimetroJLabel.setText("");
+		areaJLabel.setText("");
+		ventana.pack();
+	}
+
+	public PestaniaRomboide() {
+		romboideJPanel = new JPanel();
+		romboideJPanel.setLayout(new GridBagLayout());
+		JPanel descripcionJPanel = new JPanel();
+		descripcionJPanel.setLayout(new GridBagLayout());
+		GridBagConstraints gbc;
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.fill = GridBagConstraints.BOTH;
+		romboideJPanel.add(descripcionJPanel, gbc);
+		JTextArea descripcionTextArea = new JTextArea();
+		descripcionTextArea.setEditable(false);
+		descripcionTextArea.setText(instruccionesText);
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.gridwidth = 5;
+		gbc.anchor = GridBagConstraints.WEST;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		descripcionJPanel.add(descripcionTextArea, gbc);
+		final JPanel spacer1 = new JPanel();
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		gbc.gridwidth = 5;
+		gbc.fill = GridBagConstraints.VERTICAL;
+		descripcionJPanel.add(spacer1, gbc);
+		JLabel ladoAJLabel = new JLabel();
+		ladoAJLabel.setText("Lado A:");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 2;
+		gbc.anchor = GridBagConstraints.WEST;
+		descripcionJPanel.add(ladoAJLabel, gbc);
+		JLabel baseJLabel = new JLabel();
+		baseJLabel.setText("Base: ");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 2;
+		gbc.gridy = 2;
+		gbc.anchor = GridBagConstraints.WEST;
+		descripcionJPanel.add(baseJLabel, gbc);
+		final JPanel spacer2 = new JPanel();
+		gbc = new GridBagConstraints();
+		gbc.gridx = 1;
+		gbc.gridy = 2;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		descripcionJPanel.add(spacer2, gbc);
+		ladoATextField = new JTextField();
+		ladoATextField.setToolTipText("Ingrese la medida del lado A");
 		ladoAJLabel.setLabelFor(ladoATextField);
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 3;
+		gbc.anchor = GridBagConstraints.WEST;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		descripcionJPanel.add(ladoATextField, gbc);
+		baseTextField = new JTextField();
+		baseTextField.setToolTipText("Ingrese la base");
+		baseJLabel.setLabelFor(baseTextField);
+		gbc = new GridBagConstraints();
+		gbc.gridx = 2;
+		gbc.gridy = 3;
+		gbc.anchor = GridBagConstraints.WEST;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		descripcionJPanel.add(baseTextField, gbc);
+		JLabel alturaJLabel = new JLabel();
+		alturaJLabel.setText("Altura: ");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 4;
+		gbc.gridy = 2;
+		gbc.anchor = GridBagConstraints.WEST;
+		descripcionJPanel.add(alturaJLabel, gbc);
+		alturaTextField = new JTextField();
+		alturaTextField.setToolTipText("Ingrese la altura");
+		alturaJLabel.setLabelFor(alturaTextField);
+		gbc = new GridBagConstraints();
+		gbc.gridx = 4;
+		gbc.gridy = 3;
+		gbc.anchor = GridBagConstraints.WEST;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		descripcionJPanel.add(alturaTextField, gbc);
+		final JPanel spacer3 = new JPanel();
+		gbc = new GridBagConstraints();
+		gbc.gridx = 3;
+		gbc.gridy = 2;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		descripcionJPanel.add(spacer3, gbc);
+		final JPanel spacer4 = new JPanel();
+		gbc = new GridBagConstraints();
+		gbc.gridx = 2;
+		gbc.gridy = 4;
+		gbc.fill = GridBagConstraints.VERTICAL;
+		descripcionJPanel.add(spacer4, gbc);
+		JButton calcularButton = new JButton();
+		calcularButton.setText("Calcular Romboide");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 5;
+		gbc.gridwidth = 5;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		descripcionJPanel.add(calcularButton, gbc);
+		final JPanel spacer5 = new JPanel();
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		gbc.fill = GridBagConstraints.VERTICAL;
+		romboideJPanel.add(spacer5, gbc);
+		JPanel resultadosJPanel = new JPanel();
+		resultadosJPanel.setLayout(new GridBagLayout());
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 2;
+		gbc.fill = GridBagConstraints.BOTH;
+		romboideJPanel.add(resultadosJPanel, gbc);
+		perimetroJLabel = new JLabel();
+		perimetroJLabel.setText("");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.anchor = GridBagConstraints.WEST;
+		resultadosJPanel.add(perimetroJLabel, gbc);
+		final JPanel spacer6 = new JPanel();
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		gbc.fill = GridBagConstraints.VERTICAL;
+		resultadosJPanel.add(spacer6, gbc);
+		areaJLabel = new JLabel();
+		areaJLabel.setText("");
+		gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 2;
+		gbc.anchor = GridBagConstraints.WEST;
+		resultadosJPanel.add(areaJLabel, gbc);
 
 		baseTextField.addMouseListener(new MouseAdapter() {
 			@Override
@@ -67,157 +197,7 @@ public class PestañaRomboide {
 			perimetroJLabel.setText("El perimetro del romboide es: " + perimetro);
 			area = romboide.calcularArea();
 			areaJLabel.setText("El area del romboide es: " + area);
+			ventana.pack();
 		});
-	}
-
-	{
-// GUI initializer generated by IntelliJ IDEA GUI Designer
-// >>> IMPORTANT!! <<<
-// DO NOT EDIT OR ADD ANY CODE HERE!
-		$$$setupUI$$$();
-	}
-
-	/**
-	 * Method generated by IntelliJ IDEA GUI Designer
-	 * >>> IMPORTANT!! <<<
-	 * DO NOT edit this method OR call it in your code!
-	 *
-	 * @noinspection ALL
-	 */
-	private void $$$setupUI$$$() {
-		romboideJPanel = new JPanel();
-		romboideJPanel.setLayout(new GridBagLayout());
-		descripcionJPanel = new JPanel();
-		descripcionJPanel.setLayout(new GridBagLayout());
-		GridBagConstraints gbc;
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		gbc.fill = GridBagConstraints.BOTH;
-		romboideJPanel.add(descripcionJPanel, gbc);
-		descripcionTextField = new JTextField();
-		descripcionTextField.setEditable(false);
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		gbc.gridwidth = 5;
-		gbc.anchor = GridBagConstraints.WEST;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		descripcionJPanel.add(descripcionTextField, gbc);
-		final JPanel spacer1 = new JPanel();
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 1;
-		gbc.gridwidth = 5;
-		gbc.fill = GridBagConstraints.VERTICAL;
-		descripcionJPanel.add(spacer1, gbc);
-		ladoAJLabel = new JLabel();
-		ladoAJLabel.setText("");
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 2;
-		gbc.anchor = GridBagConstraints.WEST;
-		descripcionJPanel.add(ladoAJLabel, gbc);
-		baseJLabel = new JLabel();
-		baseJLabel.setText("");
-		gbc = new GridBagConstraints();
-		gbc.gridx = 2;
-		gbc.gridy = 2;
-		gbc.anchor = GridBagConstraints.WEST;
-		descripcionJPanel.add(baseJLabel, gbc);
-		final JPanel spacer2 = new JPanel();
-		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
-		gbc.gridy = 2;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		descripcionJPanel.add(spacer2, gbc);
-		ladoATextField = new JTextField();
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 3;
-		gbc.anchor = GridBagConstraints.WEST;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		descripcionJPanel.add(ladoATextField, gbc);
-		baseTextField = new JTextField();
-		gbc = new GridBagConstraints();
-		gbc.gridx = 2;
-		gbc.gridy = 3;
-		gbc.anchor = GridBagConstraints.WEST;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		descripcionJPanel.add(baseTextField, gbc);
-		alturaJLabel = new JLabel();
-		alturaJLabel.setText("");
-		gbc = new GridBagConstraints();
-		gbc.gridx = 4;
-		gbc.gridy = 2;
-		gbc.anchor = GridBagConstraints.WEST;
-		descripcionJPanel.add(alturaJLabel, gbc);
-		alturaTextField = new JTextField();
-		gbc = new GridBagConstraints();
-		gbc.gridx = 4;
-		gbc.gridy = 3;
-		gbc.anchor = GridBagConstraints.WEST;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		descripcionJPanel.add(alturaTextField, gbc);
-		final JPanel spacer3 = new JPanel();
-		gbc = new GridBagConstraints();
-		gbc.gridx = 3;
-		gbc.gridy = 2;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		descripcionJPanel.add(spacer3, gbc);
-		final JPanel spacer4 = new JPanel();
-		gbc = new GridBagConstraints();
-		gbc.gridx = 2;
-		gbc.gridy = 4;
-		gbc.fill = GridBagConstraints.VERTICAL;
-		descripcionJPanel.add(spacer4, gbc);
-		calcularButton = new JButton();
-		calcularButton.setText("");
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 5;
-		gbc.gridwidth = 5;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		descripcionJPanel.add(calcularButton, gbc);
-		final JPanel spacer5 = new JPanel();
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 1;
-		gbc.fill = GridBagConstraints.VERTICAL;
-		romboideJPanel.add(spacer5, gbc);
-		resultadosJPanel = new JPanel();
-		resultadosJPanel.setLayout(new GridBagLayout());
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 2;
-		gbc.fill = GridBagConstraints.BOTH;
-		romboideJPanel.add(resultadosJPanel, gbc);
-		perimetroJLabel = new JLabel();
-		perimetroJLabel.setText("");
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		gbc.anchor = GridBagConstraints.WEST;
-		resultadosJPanel.add(perimetroJLabel, gbc);
-		final JPanel spacer6 = new JPanel();
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 1;
-		gbc.fill = GridBagConstraints.VERTICAL;
-		resultadosJPanel.add(spacer6, gbc);
-		areaJLabel = new JLabel();
-		areaJLabel.setText("");
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 2;
-		gbc.anchor = GridBagConstraints.WEST;
-		resultadosJPanel.add(areaJLabel, gbc);
-	}
-
-	/**
-	 * @noinspection ALL
-	 */
-	public JComponent $$$getRootComponent$$$() {
-		return romboideJPanel;
 	}
 }

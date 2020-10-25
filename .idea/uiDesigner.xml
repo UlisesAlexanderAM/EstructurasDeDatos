@@ -121,13 +121,13 @@
       </item>
     </group>
     <group name="Pestañas">
-      <item class="IntefazConUsuario.PestañaRectangulo" icon="/com/intellij/uiDesigner/icons/panel.png" removable="true" auto-create-binding="true" can-attach-label="true">
+      <item class="IntefazConUsuario.PestaniaRectangulo" icon="/com/intellij/uiDesigner/icons/panel.png" removable="true" auto-create-binding="true" can-attach-label="true">
         <default-constraints vsize-policy="7" hsize-policy="7" anchor="0" fill="3" />
       </item>
-      <item class="IntefazConUsuario.PestañaTriangulo" icon="/com/intellij/uiDesigner/icons/panel.png" removable="true" auto-create-binding="true" can-attach-label="true" is-container="true">
+      <item class="IntefazConUsuario.PestaniaTriangulo" icon="/com/intellij/uiDesigner/icons/panel.png" removable="true" auto-create-binding="true" can-attach-label="true" is-container="true">
         <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="0" />
       </item>
-      <item class="IntefazConUsuario.PestañaRomboide" icon="/com/intellij/uiDesigner/icons/panel.png" removable="true" auto-create-binding="true" can-attach-label="true" is-container="true">
+      <item class="IntefazConUsuario.PestaniaRomboide" icon="/com/intellij/uiDesigner/icons/panel.png" removable="true" auto-create-binding="true" can-attach-label="true" is-container="true">
         <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="0" />
       </item>
     </group>
