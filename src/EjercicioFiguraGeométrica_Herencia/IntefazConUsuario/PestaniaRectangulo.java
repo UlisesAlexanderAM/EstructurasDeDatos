@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class PestaniaRectangulo extends Inicio{
+public class PestaniaRectangulo extends Inicio {
 	private final JPanel rectanguloJPanel;
 	private final JTextField baseTextField;
 	private final JTextField alturaTextField;
@@ -19,7 +19,7 @@ public class PestaniaRectangulo extends Inicio{
 		return rectanguloJPanel;
 	}
 
-	public void reiniciar(){
+	public void reiniciar() {
 		baseTextField.setText("");
 		alturaTextField.setText("");
 		perimetroJLabel.setText("");
@@ -27,7 +27,7 @@ public class PestaniaRectangulo extends Inicio{
 		ventana.pack();
 	}
 
-	public PestaniaRectangulo(){
+	public PestaniaRectangulo() {
 		rectanguloJPanel = new JPanel();
 		rectanguloJPanel.setLayout(new GridBagLayout());
 		JPanel descripcionJPanel = new JPanel();
@@ -159,12 +159,10 @@ public class PestaniaRectangulo extends Inicio{
 			Rectangulo rectangulo = new Rectangulo();
 			rectangulo.setAltura(Float.parseFloat(alturaTextField.getText()));
 			rectangulo.setBase(Float.parseFloat(baseTextField.getText()));
-			double area;
-			float perimetro;
-			perimetro = rectangulo.calcularPerimetro();
-			perimetroJLabel.setText("El perímetro del rectángulo es: " + perimetro);
-			area = rectangulo.calcularArea();
-			areaJLabel.setText("El area del rectángulo es: " + area);
+			String area=rectangulo.mostrarArea();
+			String perimetro=rectangulo.mostrarPerimetro();
+			perimetroJLabel.setText(perimetro);
+			areaJLabel.setText(area);
 			ventana.pack();
 		});
 	}

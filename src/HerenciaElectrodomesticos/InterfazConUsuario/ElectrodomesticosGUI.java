@@ -20,11 +20,11 @@ public class ElectrodomesticosGUI {
 	private JPanel panelCreacionObjeto;
 	private JTextField precioTextField;
 	private JLabel precioLabel;
-	private JList colorList;
+	private JList<String> colorList;
 	private JRadioButton televisorRadioButton;
 	private JRadioButton otroElectrodomestico;
 	private JLabel consumoEnergeticoLabel;
-	private JList consumoEnergeticoList;
+	private JList<Character> consumoEnergeticoList;
 	private JTextField pesoTextField;
 	private JPanel panelTelevision;
 	private JLabel resolucionLabel;
@@ -56,7 +56,7 @@ public class ElectrodomesticosGUI {
 	private final char[] consumoEnergetico = {'A', 'B', 'C', 'D', 'E', 'F'};
 	private char seleccionConsumoEnergetico;
 
-	public static ArrayList<Electrodomestico> electrodomesticos = new ArrayList<>();
+	public static final ArrayList<Electrodomestico> electrodomesticos = new ArrayList<>();
 
 	public ElectrodomesticosGUI() {
 		lavadoraRadioButton.addActionListener(actionEvent -> {
@@ -152,7 +152,7 @@ public class ElectrodomesticosGUI {
 	}
 
 	public void crearObjeto() {
-		String color = colorList.getSelectedValue().toString();
+		String color = colorList.getSelectedValue();
 		double precioBase = Double.parseDouble(precioTextField.getText());
 		double peso = Double.parseDouble(pesoTextField.getText());
 		Electrodomestico electrodomestico = electrodomesticos.get(indice);

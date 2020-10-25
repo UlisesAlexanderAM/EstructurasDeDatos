@@ -21,7 +21,7 @@ public class PestaniaTriangulo extends Inicio {
 		return trianguloJPanel;
 	}
 
-	public void reiniciar(){
+	public void reiniciar() {
 		ladoATextField.setText("");
 		ladoBTextField.setText("");
 		baseTextField.setText("");
@@ -210,12 +210,10 @@ public class PestaniaTriangulo extends Inicio {
 			Triangulo triangulo = new Triangulo();
 			triangulo.setAltura(Float.parseFloat(alturaTextField.getText()));
 			triangulo.setBase(Float.parseFloat(baseTextField.getText()));
-			double area;
-			float perimetro;
-			perimetro = triangulo.calcularPerimetro();
-			perimetroJLabel.setText("El perímetro del triángulo es: " + perimetro);
-			area = triangulo.calcularArea();
-			areaJLabel.setText("El area del triángulo es: " + area);
+			String area = triangulo.mostrarArea();
+			String perimetro = triangulo.mostrarPerimetro();
+			perimetroJLabel.setText(perimetro);
+			areaJLabel.setText(area);
 			ventana.pack();
 		});
 	}

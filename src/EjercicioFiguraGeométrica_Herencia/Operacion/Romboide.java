@@ -1,23 +1,43 @@
 package Operacion;
 
-public class Romboide extends Figura {
-    float lado;
+public class Romboide extends Figura{
+	private static final String NOMBRE = "Romboide";
+	float lado;
 
-    public Romboide(){
-    }
+	public Romboide() {
+	}
 
-    public Romboide(float base, float altura, float lado){
-        super(base,altura);
-        this.lado =lado;
-    }
+	public Romboide(float base, float altura, float lado) {
+		this(base,altura,NOMBRE,lado);
+	}
 
-    @Override
-    public double calcularArea() {
-        return area = this.base * this.altura;
-    }
+	public Romboide(float base, float altura, String nombre, float lado) {
+		super(base, altura, nombre);
+		this.lado = lado;
+	}
 
-    @Override
-    public float calcularPerimetro() {
-        return perimetro = (this.base+lado)*2;
-    }
+	@Override
+	public double calcularArea() {
+		return area = this.base * this.altura;
+	}
+
+	@Override
+	public float calcularPerimetro() {
+		return perimetro = (this.base + lado) * 2;
+	}
+
+	@Override
+	public String getNombre() {
+		return NOMBRE;
+	}
+
+	@Override
+	public double getArea() {
+		return this.area;
+	}
+
+	@Override
+	public float getPerimetro() {
+		return 0;
+	}
 }

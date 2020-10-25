@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class PestaniaRomboide extends Inicio{
+public class PestaniaRomboide extends Inicio {
 	private final JTextField ladoATextField;
 	private final JTextField baseTextField;
 	private final JTextField alturaTextField;
@@ -21,7 +21,7 @@ public class PestaniaRomboide extends Inicio{
 		return romboideJPanel;
 	}
 
-	public void reiniciar(){
+	public void reiniciar() {
 		ladoATextField.setText("");
 		baseTextField.setText("");
 		alturaTextField.setText("");
@@ -191,12 +191,10 @@ public class PestaniaRomboide extends Inicio{
 			Romboide romboide = new Romboide();
 			romboide.setAltura(Float.parseFloat(alturaTextField.getText()));
 			romboide.setBase(Float.parseFloat(baseTextField.getText()));
-			double area;
-			float perimetro;
-			perimetro = romboide.calcularPerimetro();
-			perimetroJLabel.setText("El perimetro del romboide es: " + perimetro);
-			area = romboide.calcularArea();
-			areaJLabel.setText("El area del romboide es: " + area);
+			String area = romboide.mostrarArea();
+			String perimetro = romboide.mostrarPerimetro();
+			perimetroJLabel.setText(perimetro);
+			areaJLabel.setText(area);
 			ventana.pack();
 		});
 	}

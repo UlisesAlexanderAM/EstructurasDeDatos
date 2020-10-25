@@ -3,12 +3,12 @@ package IntefazConUsuario;
 import javax.swing.*;
 import java.awt.*;
 
-public class Inicio extends JFrame{
+public class Inicio extends JFrame {
 	protected static final JFrame ventana = new JFrame();
 
 	public static void main(String[] args) {
 		JPanel ventanaContenedor = new JPanel();
-		JTabbedPane pestanias = new JTabbedPane(SwingConstants.TOP,JTabbedPane.WRAP_TAB_LAYOUT);
+		JTabbedPane pestanias = new JTabbedPane(SwingConstants.TOP, JTabbedPane.WRAP_TAB_LAYOUT);
 		PestaniaRectangulo pestaniaRectangulo = new PestaniaRectangulo();
 		PestaniaTriangulo pestaniaTriangulo = new PestaniaTriangulo();
 		PestaniaRomboide pestaniaRomboide = new PestaniaRomboide();
@@ -22,13 +22,13 @@ public class Inicio extends JFrame{
 		ventana.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		ventana.setVisible(true);
 		GridBagConstraints gbc = new GridBagConstraints();
-		gbc.gridx=0;
-		gbc.gridy=0;
+		gbc.gridx = 0;
+		gbc.gridy = 0;
 		gbc.fill = GridBagConstraints.BOTH;
-		pestanias.addTab("Rectangulo",rectanguloJPanel);
-		pestanias.addTab("Triangulo",trianguloJPanel);
-		pestanias.addTab("Romboide",romboideJPanel);
-		ventanaContenedor.add(pestanias,gbc);
+		pestanias.addTab("Rectangulo", rectanguloJPanel);
+		pestanias.addTab("Triangulo", trianguloJPanel);
+		pestanias.addTab("Romboide", romboideJPanel);
+		ventanaContenedor.add(pestanias, gbc);
 		ventana.pack();
 
 		pestanias.addChangeListener(changeEvent -> {

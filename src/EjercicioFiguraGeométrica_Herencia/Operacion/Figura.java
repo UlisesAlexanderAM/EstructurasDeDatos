@@ -2,56 +2,48 @@ package Operacion;
 
 import static LecturaEscritura.Imprimir.imprimir;
 
-public abstract class Figura {
-    protected float base;
-    protected float altura;
-    protected double area;
-    protected float perimetro;
+public abstract class Figura implements FiguraInterface {
+	protected float base;
+	protected float altura;
+	protected double area;
+	protected float perimetro;
+	protected String nombre;
 
-    public Figura(){
-        imprimir("\n"+this.getClass().getSimpleName());
-    }
+	public Figura() {
+		imprimir("\n" + this.getClass().getSimpleName());
+	}
 
-    public Figura(float base, float altura){
-        this.base=base;
-        this.altura=altura;
-    }
+	public Figura(float base, float altura, String nombre) {
+		this.base = base;
+		this.altura = altura;
+		this.nombre = nombre;
+	}
 
-    public void mostrarArea() {
-        imprimir("\nEl area de " +this.getClass().getSimpleName()+
-                " es: "+calcularArea());
-    }
+	@Override
+	public String mostrarArea() {
+		return "\nEl area de " + nombre +
+				" es: " + calcularArea();
+	}
 
-    public void mostrarPerimetro(){
-        imprimir("\nEl perimetro de " +this.getClass().getSimpleName()+
-                " es: "+calcularPerimetro());
-    }
+	@Override
+	public String mostrarPerimetro() {
+		return "\nEl perimetro de " + nombre +
+				" es: " + calcularPerimetro();
+	}
 
-    public abstract double calcularArea();
+	public float getAltura() {
+		return altura;
+	}
 
-    public abstract float calcularPerimetro();
+	public float getBase() {
+		return base;
+	}
 
-    public float getAltura() {
-        return altura;
-    }
+	public void setAltura(float altura) {
+		this.altura = altura;
+	}
 
-    public float getBase() {
-        return base;
-    }
-
-    public double getArea() {
-        return area;
-    }
-
-    public float getPerimetro() {
-        return perimetro;
-    }
-
-    public void setAltura(float altura) {
-        this.altura = altura;
-    }
-
-    public void setBase(float base) {
-        this.base = base;
-    }
+	public void setBase(float base) {
+		this.base = base;
+	}
 }
