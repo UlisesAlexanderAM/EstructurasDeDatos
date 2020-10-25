@@ -1,10 +1,14 @@
-package Operacion;
+package InterfazConUsuario;
+
+import Operacion.Electrodomestico;
+import Operacion.Lavadora;
+import Operacion.Television;
 
 import java.util.ArrayList;
 
 import static LecturaEscritura.Imprimir.imprimir;
 
-public class Main {
+public class CLI {
 
     public static ArrayList<Electrodomestico> electrodomesticos = new ArrayList<>(10);
     public static void main(String[] args){

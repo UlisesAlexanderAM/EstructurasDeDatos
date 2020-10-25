@@ -1,4 +1,4 @@
-package InterfazGrafica;
+package InterfazConUsuario;
 
 import Operacion.Electrodomestico;
 import Operacion.Lavadora;
