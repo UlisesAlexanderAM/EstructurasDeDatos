@@ -8,7 +8,7 @@ import Operacion.Triangulo;
 import java.util.ArrayList;
 
 import static LecturaEscritura.Imprimir.imprimir;
-import static LecturaEscritura.Leer.*;
+import static LecturaEscritura.Leer.leerEntero;
 
 public class CLI {
 
