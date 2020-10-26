@@ -2,7 +2,7 @@ package IntefazConUsuario;
 
 import javax.swing.*;
 
-public abstract class Pestanias extends Inicio {
+public abstract class Pestanias extends Inicio implements PestaniasInterface {
 	protected String instrucionesText;
 	protected final JPanel pestaniaJPanel;
 	protected final JTextField baseTextField;
@@ -19,9 +19,9 @@ public abstract class Pestanias extends Inicio {
 		instrucionesText = "";
 	}
 
+	@Override
 	public JPanel getPestaniaJPanel() {
 		return pestaniaJPanel;
 	}
 
-	public abstract void reiniciar();
 }
