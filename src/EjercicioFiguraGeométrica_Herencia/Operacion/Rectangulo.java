@@ -11,7 +11,7 @@ public class Rectangulo extends Figura {
 		this(base, altura, NOMBRE);
 	}
 
-	public Rectangulo(float base, float altura, String nombre) {
+	private Rectangulo(float base, float altura, String nombre) {
 		super(base, altura, nombre);
 	}
 
@@ -32,11 +32,11 @@ public class Rectangulo extends Figura {
 
 	@Override
 	public double getArea() {
-		return this.area;
+		return this.calcularArea();
 	}
 
 	@Override
 	public float getPerimetro() {
-		return this.perimetro;
+		return this.calcularPerimetro();
 	}
 }
