@@ -12,9 +12,9 @@ public class Inicio extends JFrame {
 		PestaniaRectangulo pestaniaRectangulo = new PestaniaRectangulo();
 		PestaniaTriangulo pestaniaTriangulo = new PestaniaTriangulo();
 		PestaniaRomboide pestaniaRomboide = new PestaniaRomboide();
-		JPanel rectanguloJPanel = pestaniaRectangulo.getRectanguloJPanel();
-		JPanel trianguloJPanel = pestaniaTriangulo.getTrianguloJPanel();
-		JPanel romboideJPanel = pestaniaRomboide.getRomboideJPanel();
+		JPanel rectanguloJPanel = pestaniaRectangulo.getPestaniaJPanel();
+		JPanel trianguloJPanel = pestaniaTriangulo.getPestaniaJPanel();
+		JPanel romboideJPanel = pestaniaRomboide.getPestaniaJPanel();
 
 		ventana.setTitle("Figuras Geometricas");
 		ventana.setContentPane(ventanaContenedor);

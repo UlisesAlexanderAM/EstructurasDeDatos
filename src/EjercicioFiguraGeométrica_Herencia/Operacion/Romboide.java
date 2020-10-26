@@ -1,6 +1,6 @@
 package Operacion;
 
-public class Romboide extends Figura{
+public class Romboide extends Figura {
 	private static final String NOMBRE = "Romboide";
 	float lado;
 
@@ -8,7 +8,7 @@ public class Romboide extends Figura{
 	}
 
 	public Romboide(float base, float altura, float lado) {
-		this(base,altura,NOMBRE,lado);
+		this(base, altura, NOMBRE, lado);
 	}
 
 	public Romboide(float base, float altura, String nombre, float lado) {

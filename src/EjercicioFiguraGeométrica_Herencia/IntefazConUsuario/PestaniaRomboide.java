@@ -7,20 +7,14 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class PestaniaRomboide extends Inicio {
+public class PestaniaRomboide extends Pestanias {
 	private final JTextField ladoATextField;
-	private final JTextField baseTextField;
-	private final JTextField alturaTextField;
-	private final JLabel perimetroJLabel;
-	private final JLabel areaJLabel;
-	private final JPanel romboideJPanel;
-	private final static String instruccionesText = "Aquí podras calcular el area y perimetro de un romboide." +
-			"\nProporcionando la base y la altura.\nPara mostrar los resultados presionar el boton \"Calcular\"";
 
-	public JPanel getRomboideJPanel() {
-		return romboideJPanel;
+	public JPanel getPestaniaJPanel() {
+		return pestaniaJPanel;
 	}
 
+	@Override
 	public void reiniciar() {
 		ladoATextField.setText("");
 		baseTextField.setText("");
@@ -31,8 +25,9 @@ public class PestaniaRomboide extends Inicio {
 	}
 
 	public PestaniaRomboide() {
-		romboideJPanel = new JPanel();
-		romboideJPanel.setLayout(new GridBagLayout());
+		super();
+		instrucionesText = "Aquí podras calcular el area y perimetro de un romboide. \nProporcionando la base y la altura.\nPara mostrar los resultados presionar el boton \"Calcular\"";
+		pestaniaJPanel.setLayout(new GridBagLayout());
 		JPanel descripcionJPanel = new JPanel();
 		descripcionJPanel.setLayout(new GridBagLayout());
 		GridBagConstraints gbc;
@@ -40,10 +35,10 @@ public class PestaniaRomboide extends Inicio {
 		gbc.gridx = 0;
 		gbc.gridy = 0;
 		gbc.fill = GridBagConstraints.BOTH;
-		romboideJPanel.add(descripcionJPanel, gbc);
+		pestaniaJPanel.add(descripcionJPanel, gbc);
 		JTextArea descripcionTextArea = new JTextArea();
 		descripcionTextArea.setEditable(false);
-		descripcionTextArea.setText(instruccionesText);
+		descripcionTextArea.setText(instrucionesText);
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
 		gbc.gridy = 0;
@@ -87,7 +82,6 @@ public class PestaniaRomboide extends Inicio {
 		gbc.anchor = GridBagConstraints.WEST;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		descripcionJPanel.add(ladoATextField, gbc);
-		baseTextField = new JTextField();
 		baseTextField.setToolTipText("Ingrese la base");
 		baseJLabel.setLabelFor(baseTextField);
 		gbc = new GridBagConstraints();
@@ -103,7 +97,6 @@ public class PestaniaRomboide extends Inicio {
 		gbc.gridy = 2;
 		gbc.anchor = GridBagConstraints.WEST;
 		descripcionJPanel.add(alturaJLabel, gbc);
-		alturaTextField = new JTextField();
 		alturaTextField.setToolTipText("Ingrese la altura");
 		alturaJLabel.setLabelFor(alturaTextField);
 		gbc = new GridBagConstraints();
@@ -137,15 +130,14 @@ public class PestaniaRomboide extends Inicio {
 		gbc.gridx = 0;
 		gbc.gridy = 1;
 		gbc.fill = GridBagConstraints.VERTICAL;
-		romboideJPanel.add(spacer5, gbc);
+		pestaniaJPanel.add(spacer5, gbc);
 		JPanel resultadosJPanel = new JPanel();
 		resultadosJPanel.setLayout(new GridBagLayout());
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
 		gbc.gridy = 2;
 		gbc.fill = GridBagConstraints.BOTH;
-		romboideJPanel.add(resultadosJPanel, gbc);
-		perimetroJLabel = new JLabel();
+		pestaniaJPanel.add(resultadosJPanel, gbc);
 		perimetroJLabel.setText("");
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
@@ -158,7 +150,6 @@ public class PestaniaRomboide extends Inicio {
 		gbc.gridy = 1;
 		gbc.fill = GridBagConstraints.VERTICAL;
 		resultadosJPanel.add(spacer6, gbc);
-		areaJLabel = new JLabel();
 		areaJLabel.setText("");
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;

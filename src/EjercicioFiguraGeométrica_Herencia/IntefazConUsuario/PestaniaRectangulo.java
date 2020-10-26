@@ -7,18 +7,9 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class PestaniaRectangulo extends Inicio {
-	private final JPanel rectanguloJPanel;
-	private final JTextField baseTextField;
-	private final JTextField alturaTextField;
-	private final JLabel perimetroJLabel;
-	private final JLabel areaJLabel;
-	private final static String instrucionesText = "Aquí podras calcular el area y perímetro de un rectángulo.\nProporcionando la base y la altura.\nPara mostrar los resultados presionar el boton \"Calcular\"";
+public class PestaniaRectangulo extends Pestanias {
 
-	public JPanel getRectanguloJPanel() {
-		return rectanguloJPanel;
-	}
-
+	@Override
 	public void reiniciar() {
 		baseTextField.setText("");
 		alturaTextField.setText("");
@@ -28,8 +19,9 @@ public class PestaniaRectangulo extends Inicio {
 	}
 
 	public PestaniaRectangulo() {
-		rectanguloJPanel = new JPanel();
-		rectanguloJPanel.setLayout(new GridBagLayout());
+		super();
+		instrucionesText = "Aquí podras calcular el area y perímetro de un rectángulo.\nProporcionando la base y la altura.\nPara mostrar los resultados presionar el boton \"Calcular\"";
+		pestaniaJPanel.setLayout(new GridBagLayout());
 		JPanel descripcionJPanel = new JPanel();
 		descripcionJPanel.setLayout(new GridBagLayout());
 		GridBagConstraints gbc;
@@ -37,7 +29,7 @@ public class PestaniaRectangulo extends Inicio {
 		gbc.gridx = 0;
 		gbc.gridy = 0;
 		gbc.fill = GridBagConstraints.BOTH;
-		rectanguloJPanel.add(descripcionJPanel, gbc);
+		pestaniaJPanel.add(descripcionJPanel, gbc);
 		JLabel baseJLabel = new JLabel();
 		baseJLabel.setText("Base: ");
 		gbc = new GridBagConstraints();
@@ -58,7 +50,6 @@ public class PestaniaRectangulo extends Inicio {
 		gbc.gridy = 1;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		descripcionJPanel.add(spacer1, gbc);
-		baseTextField = new JTextField();
 		baseTextField.setToolTipText("Ingrese la base del rectángulo");
 		baseJLabel.setLabelFor(baseTextField);
 		gbc = new GridBagConstraints();
@@ -67,7 +58,6 @@ public class PestaniaRectangulo extends Inicio {
 		gbc.anchor = GridBagConstraints.WEST;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		descripcionJPanel.add(baseTextField, gbc);
-		alturaTextField = new JTextField();
 		gbc = new GridBagConstraints();
 		gbc.gridx = 3;
 		gbc.gridy = 2;
@@ -119,8 +109,7 @@ public class PestaniaRectangulo extends Inicio {
 		gbc.gridx = 0;
 		gbc.gridy = 1;
 		gbc.fill = GridBagConstraints.BOTH;
-		rectanguloJPanel.add(resultadosJPanel, gbc);
-		perimetroJLabel = new JLabel();
+		pestaniaJPanel.add(resultadosJPanel, gbc);
 		perimetroJLabel.setText("");
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
@@ -133,7 +122,6 @@ public class PestaniaRectangulo extends Inicio {
 		gbc.gridy = 1;
 		gbc.fill = GridBagConstraints.VERTICAL;
 		resultadosJPanel.add(spacer5, gbc);
-		areaJLabel = new JLabel();
 		areaJLabel.setText("");
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;

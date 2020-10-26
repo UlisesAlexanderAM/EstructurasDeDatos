@@ -1,6 +1,6 @@
 package Operacion;
 
-public class Triangulo extends Figura{
+public class Triangulo extends Figura {
 	private static final String NOMBRE = "Triángulo";
 	float ladoA;
 	float ladoB;
@@ -9,7 +9,7 @@ public class Triangulo extends Figura{
 	}
 
 	public Triangulo(float base, float altura, float ladoA, float ladoB) {
-		this(base,altura,NOMBRE,ladoA,ladoB);
+		this(base, altura, NOMBRE, ladoA, ladoB);
 	}
 
 	public Triangulo(float base, float altura, String nombre, float ladoA, float ladoB) {
