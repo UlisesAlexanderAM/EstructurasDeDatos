@@ -31,13 +31,4 @@ public class Romboide extends Figura {
 		return NOMBRE;
 	}
 
-	@Override
-	public double getArea() {
-		return this.area;
-	}
-
-	@Override
-	public float getPerimetro() {
-		return 0;
-	}
 }

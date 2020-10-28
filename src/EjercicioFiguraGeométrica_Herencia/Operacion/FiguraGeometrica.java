@@ -1,6 +1,10 @@
 package Operacion;
 
+import java.util.ArrayList;
+
 public interface FiguraGeometrica {
+	ArrayList<Float> lados = new ArrayList<>();
+
 	/**
 	 * @return Regresa el mensaje especificando el nombre de la figura geométrica y su area.
 	 */

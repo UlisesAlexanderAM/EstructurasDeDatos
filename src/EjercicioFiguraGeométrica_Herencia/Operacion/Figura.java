@@ -2,7 +2,6 @@ package Operacion;
 
 /**
  * @author Ulises Alexander Arguelles Monjaraz <a href="mailto:ulises_alexander_am@protonmail.com">ulises_alexander_am@protonmail.com</a>
- *
  */
 
 public abstract class Figura implements FiguraGeometrica {
@@ -12,11 +11,13 @@ public abstract class Figura implements FiguraGeometrica {
 	protected float perimetro;
 	protected String nombre;
 
-	public Figura() {}
+	public Figura() {
+	}
 
 	/**
 	 * Constructor con todos los parámetros de una figura geométrica.
-	 * @param base la base de la figura.
+	 *
+	 * @param base   la base de la figura.
 	 * @param altura la altura de la figura.
 	 * @param nombre nombre de la figura.
 	 */
@@ -40,12 +41,9 @@ public abstract class Figura implements FiguraGeometrica {
 	 */
 	@Override
 	public String mostrarPerimetro() {
-		return "\nEl perimetro de " + nombre +
+		return "\nEl perímetro de " + nombre +
 				" es: " + getPerimetro();
 	}
-
-	@Override
-	public abstract String getNombre();
 
 	@Override
 	public String toString() {
@@ -53,7 +51,7 @@ public abstract class Figura implements FiguraGeometrica {
 				"base=" + base +
 				", altura=" + altura +
 				", area=" + area +
-				", perimetro=" + perimetro +
+				", perímetro=" + perimetro +
 				", nombre='" + nombre + '\'' +
 				'}';
 	}
@@ -64,7 +62,7 @@ public abstract class Figura implements FiguraGeometrica {
 				"base=" + base +
 				", altura=" + altura +
 				", area=" + area +
-				", perimetro=" + perimetro +
+				", perímetro=" + perimetro +
 				", nombre='" + nombre + '\'' +
 				'}';
 	}
@@ -73,15 +71,25 @@ public abstract class Figura implements FiguraGeometrica {
 		return altura;
 	}
 
-	public float getBase() {
-		return base;
-	}
-
 	public void setAltura(float altura) {
 		this.altura = altura;
 	}
 
+	public float getBase() {
+		return base;
+	}
+
 	public void setBase(float base) {
 		this.base = base;
+	}
+
+	@Override
+	public double getArea() {
+		return calcularArea();
+	}
+
+	@Override
+	public float getPerimetro() {
+		return calcularPerimetro();
 	}
 }

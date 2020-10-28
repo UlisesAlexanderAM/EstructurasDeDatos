@@ -29,14 +29,4 @@ public class Rectangulo extends Figura {
 	public String getNombre() {
 		return NOMBRE;
 	}
-
-	@Override
-	public double getArea() {
-		return this.calcularArea();
-	}
-
-	@Override
-	public float getPerimetro() {
-		return this.calcularPerimetro();
-	}
 }
